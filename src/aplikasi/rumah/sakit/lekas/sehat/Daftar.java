@@ -61,8 +61,8 @@ public class Daftar extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setLocation(new java.awt.Point(400, 400));
 
-        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel1.setText("Silahkan masukkan data dengan benar");
+        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
 
         txtAlamat.setColumns(20);
         txtAlamat.setLineWrap(true);
@@ -73,6 +73,12 @@ public class Daftar extends javax.swing.JFrame {
         jLabel5.setText("4. Tanggal lahir");
 
         jLabel6.setText("5. No. Ponsel");
+
+        txtNama.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txtNamaKeyPressed(evt);
+            }
+        });
 
         jLabel3.setText("2. Nama Lengkap");
 
@@ -99,6 +105,17 @@ public class Daftar extends javax.swing.JFrame {
             }
         });
 
+        txtNRM.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtNRMActionPerformed(evt);
+            }
+        });
+        txtNRM.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txtNRMKeyPressed(evt);
+            }
+        });
+
         jLabel8.setText("7. Email");
 
         buttonGroup1.add(jRadioButton3);
@@ -111,34 +128,31 @@ public class Daftar extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel7)
+                    .addComponent(jLabel6)
+                    .addComponent(jLabel8)
+                    .addComponent(jLabel9)
+                    .addComponent(jLabel3)
+                    .addComponent(jLabel4)
+                    .addComponent(jLabel5)
                     .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(10, 10, 10)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel7)
-                            .addComponent(jLabel6)
-                            .addComponent(jLabel8)
-                            .addComponent(jLabel9)
-                            .addComponent(jLabel3)
-                            .addComponent(jLabel4)
-                            .addComponent(jLabel5)
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(10, 10, 10)
+                                .addComponent(rdLaki)
+                                .addGap(18, 18, 18)
+                                .addComponent(jRadioButton3))
+                            .addComponent(txtNRM, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtNama, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(tglLahir, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addComponent(btnSubmit, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addComponent(rdLaki)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(jRadioButton3))
-                                    .addComponent(txtNRM, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(txtNama, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(tglLahir, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                        .addComponent(btnSubmit, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(txtPonsel, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 228, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(txtEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(txtPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE)))))))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel2)))
+                                    .addComponent(txtPonsel, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 228, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(txtEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(txtPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                    .addComponent(jLabel2))
                 .addContainerGap(168, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -215,6 +229,35 @@ public class Daftar extends javax.swing.JFrame {
         // TODO add your handling code here:
         cekNrm();
     }//GEN-LAST:event_btnSubmitActionPerformed
+
+    private void txtNRMActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNRMActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtNRMActionPerformed
+
+    private void txtNRMKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNRMKeyPressed
+        // TODO add your handling code here:
+        if(evt.getKeyChar()>='A'&&evt.getKeyChar()<='Z' ||
+                evt.getKeyChar()>='0'&&evt.getKeyChar()<='9' || 
+                evt.getKeyCode() == java.awt.event.KeyEvent.VK_BACK_SPACE ||
+                evt.getKeyCode() == java.awt.event.KeyEvent.VK_DELETE){
+            txtNRM.setEditable(true);
+        } else {
+            txtNRM.setEditable(false);
+        } 
+    }//GEN-LAST:event_txtNRMKeyPressed
+
+    private void txtNamaKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNamaKeyPressed
+        // TODO add your handling code here:
+        if( evt.getKeyChar()>='a'&&evt.getKeyChar()<='z' ||
+                evt.getKeyChar()>='A'&&evt.getKeyChar()<='Z' || 
+                evt.getKeyCode() == java.awt.event.KeyEvent.VK_BACK_SPACE ||
+                evt.getKeyCode() == java.awt.event.KeyEvent.VK_SPACE ||
+                evt.getKeyCode() == java.awt.event.KeyEvent.VK_DELETE){
+            txtNama.setEditable(true);
+        } else {
+            txtNama.setEditable(false);
+        } 
+    }//GEN-LAST:event_txtNamaKeyPressed
 
     Connection conn = Koneksi.connectDB();
     public void cekNrm(){
