@@ -60,6 +60,7 @@ public class Daftar extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setLocation(new java.awt.Point(400, 400));
+        setResizable(false);
 
         jLabel1.setText("Silahkan masukkan data dengan benar");
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
@@ -170,7 +171,7 @@ public class Daftar extends javax.swing.JFrame {
                                     .addComponent(txtEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(txtPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                     .addComponent(jLabel2))
-                .addContainerGap(185, Short.MAX_VALUE))
+                .addContainerGap(193, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -220,7 +221,7 @@ public class Daftar extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 435, Short.MAX_VALUE)
+            .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 460, Short.MAX_VALUE)
             .addGroup(layout.createSequentialGroup()
                 .addGap(79, 79, 79)
                 .addComponent(jLabel1)
@@ -232,8 +233,7 @@ public class Daftar extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(jLabel1)
                 .addGap(18, 18, 18)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 574, Short.MAX_VALUE)
-                .addContainerGap())
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 265, Short.MAX_VALUE))
         );
 
         pack();
@@ -352,7 +352,7 @@ public class Daftar extends javax.swing.JFrame {
                 Object[] opt = {"Masuk halaman login", "Periksa NRM"};
                 int selesai = JOptionPane.showOptionDialog(null, "Akun dengan NRM tersebut sudah ada!!!", "Warning!", JOptionPane.OK_CANCEL_OPTION, JOptionPane.QUESTION_MESSAGE, null, opt, opt[0]);
                 if (selesai == JOptionPane.OK_OPTION){
-                    Depan depan = new Depan();
+                    Home depan = new Home();
                     dispose();
                     depan.setVisible(true);
                 }
@@ -409,7 +409,7 @@ public class Daftar extends javax.swing.JFrame {
                 
                 int selesai = JOptionPane.showConfirmDialog(null, "Selamat!! pendaftaran berhasil.", "Announcement", JOptionPane.OK_CANCEL_OPTION, JOptionPane.PLAIN_MESSAGE);
                 if (selesai == JOptionPane.OK_OPTION){
-                    Depan depan = new Depan();
+                    Home depan = new Home();
                     dispose();
                     depan.setVisible(true);
                 }
