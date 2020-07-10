@@ -68,9 +68,26 @@ public class Daftar extends javax.swing.JFrame {
         txtAlamat.setLineWrap(true);
         txtAlamat.setRows(5);
         txtAlamat.setWrapStyleWord(true);
+        txtAlamat.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txtAlamatKeyPressed(evt);
+            }
+        });
         jScrollPane1.setViewportView(txtAlamat);
 
         jLabel5.setText("4. Tanggal lahir");
+
+        txtEmail.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txtEmailKeyPressed(evt);
+            }
+        });
+
+        txtPonsel.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txtPonselKeyPressed(evt);
+            }
+        });
 
         jLabel6.setText("5. No. Ponsel");
 
@@ -153,7 +170,7 @@ public class Daftar extends javax.swing.JFrame {
                                     .addComponent(txtEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(txtPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                     .addComponent(jLabel2))
-                .addContainerGap(168, Short.MAX_VALUE))
+                .addContainerGap(185, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -192,7 +209,7 @@ public class Daftar extends javax.swing.JFrame {
                 .addComponent(jLabel9)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(txtPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 36, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 47, Short.MAX_VALUE)
                 .addComponent(btnSubmit)
                 .addContainerGap())
         );
@@ -214,8 +231,9 @@ public class Daftar extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel1)
-                .addGap(29, 29, 29)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 279, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 574, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         pack();
@@ -258,6 +276,49 @@ public class Daftar extends javax.swing.JFrame {
             txtNama.setEditable(false);
         } 
     }//GEN-LAST:event_txtNamaKeyPressed
+
+    private void txtPonselKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtPonselKeyPressed
+        // TODO add your handling code here:
+        if(evt.getKeyChar()>='0'&&evt.getKeyChar()<='9' || 
+                evt.getKeyCode() == java.awt.event.KeyEvent.VK_BACK_SPACE ||
+                evt.getKeyCode() == java.awt.event.KeyEvent.VK_DELETE){
+            txtPonsel.setEditable(true);
+        } else {
+            txtPonsel.setEditable(false);
+        } 
+    }//GEN-LAST:event_txtPonselKeyPressed
+
+    private void txtAlamatKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtAlamatKeyPressed
+        // TODO add your handling code here:
+        if( evt.getKeyChar()>='a'&&evt.getKeyChar()<='z' ||
+                evt.getKeyChar()>='A'&&evt.getKeyChar()<='Z' ||
+                evt.getKeyChar()>='0'&&evt.getKeyChar()<='9' ||
+                evt.getKeyChar()<=':' ||
+                evt.getKeyChar()<='/' ||
+                evt.getKeyChar()<='.' ||
+                evt.getKeyCode() == java.awt.event.KeyEvent.VK_SPACE ||
+                evt.getKeyCode() == java.awt.event.KeyEvent.VK_BACK_SPACE ||
+                evt.getKeyCode() == java.awt.event.KeyEvent.VK_DELETE){
+            txtAlamat.setEditable(true);
+        } else {
+            txtAlamat.setEditable(false);
+        } 
+    }//GEN-LAST:event_txtAlamatKeyPressed
+
+    private void txtEmailKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtEmailKeyPressed
+        // TODO add your handling code here:
+        if( evt.getKeyChar()>='a'&&evt.getKeyChar()<='z' ||
+                evt.getKeyChar()>='A'&&evt.getKeyChar()<='Z' ||
+                evt.getKeyChar()>='0'&&evt.getKeyChar()<='9' || 
+                evt.getKeyChar()<='@' ||
+                evt.getKeyChar()<='.' ||
+                evt.getKeyCode() == java.awt.event.KeyEvent.VK_BACK_SPACE ||
+                evt.getKeyCode() == java.awt.event.KeyEvent.VK_DELETE){
+            txtEmail.setEditable(true);
+        } else {
+            txtEmail.setEditable(false);
+        } 
+    }//GEN-LAST:event_txtEmailKeyPressed
 
     Connection conn = Koneksi.connectDB();
     public void cekNrm(){

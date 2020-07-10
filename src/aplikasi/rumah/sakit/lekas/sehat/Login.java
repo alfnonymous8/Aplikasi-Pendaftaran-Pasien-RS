@@ -179,7 +179,7 @@ public class Login extends javax.swing.JFrame {
 
     private void txtEmailKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtEmailKeyPressed
         // TODO add your handling code here:
-        if( evt.getKeyChar()>='a'&&evt.getKeyChar()<='z' ||
+        if(evt.getKeyChar()>='a'&&evt.getKeyChar()<='z' ||
                 evt.getKeyChar()>='A'&&evt.getKeyChar()<='Z' ||
                 evt.getKeyChar()>='0'&&evt.getKeyChar()<='9' ||
                 evt.getKeyChar() == '@' ||
