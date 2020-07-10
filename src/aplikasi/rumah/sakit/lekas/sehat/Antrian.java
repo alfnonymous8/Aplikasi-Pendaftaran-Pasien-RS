@@ -9,7 +9,13 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.text.NumberFormat;
+import java.util.HashMap;
+import java.util.Map;
 import javax.swing.JOptionPane;
+import net.sf.jasperreports.engine.JasperFillManager;
+import net.sf.jasperreports.engine.JasperPrint;
+import net.sf.jasperreports.view.JasperViewer;
 
 /**
  *
@@ -198,7 +204,6 @@ public class Antrian extends javax.swing.JFrame {
     }//GEN-LAST:event_btnBatalActionPerformed
 
     public void ambil(){
-//        String pol = "";
         String NRM = Utama.NRM;
         
         if (rdBidan.isSelected()) {
@@ -236,7 +241,6 @@ public class Antrian extends javax.swing.JFrame {
     public void ambilNo(){
         try{
             String sql = "SELECT MAX(no_antri) FROM antrian WHERE spesialis='" + pol + "' && tanggal like '%" + tgl + "%'";
-//            String sql = "SELECT * FROM antrian WHERE email='" + txtEmail.getText() + "'";
             Statement stmt = conn.createStatement();
             ResultSet rs = stmt.executeQuery(sql);
             if (rs.next() == true) {
@@ -254,28 +258,36 @@ public class Antrian extends javax.swing.JFrame {
         System.out.println(noAntri);
         try{
             Statement stmt = conn.createStatement();
-            stmt.executeUpdate("INSERT INTO antrian(spesialis,tanggal,no_antri)" 
+            stmt.executeUpdate("INSERT INTO antrian(spesialis,tanggal,no_antri,nrm)" 
             + " VALUES('" + pol +
             "', '" + tgl +
             "', '" + noAntri +
+            "', '" + Utama.NRM +        
             "')");
-
-//            stmt.executeUpdate("UPDATE data_pengguna SET sandi=SHA2('" + txtPassword.getText() + "',256) WHERE email='" + txtEmail.getText() + "'");
-//                JOptionPane.showMessageDialog(null, "Selamat!! pendaftaran berhasil.", "Announcement", JOptionPane.PLAIN_MESSAGE);
-                
-            Object[] opt = {"Cetak antrian?", "Home"};
-            int selesai = JOptionPane.showOptionDialog(null, "Nomor antrian sudah terdaftar", "Success!", JOptionPane.OK_CANCEL_OPTION, JOptionPane.QUESTION_MESSAGE, null, opt, opt[0]);
-            if (selesai == JOptionPane.OK_OPTION){
-//                Cetak cetak = new Cetak();
-//                dispose();
-//                cetak.setVisible(true);
-            } else {
-                Home home = new Home();
-                dispose();
-                home.setVisible(true);
-            }
+ 
+            cetak();
+            
         }catch(SQLException e){
             System.out.println(e.getMessage());
+        }
+    }
+    
+    public void cetak(){
+        String no = String.valueOf(noAntri);
+        String a = "asdkjnasdk";
+        
+        Map<String, Object> parameters = new HashMap<String, Object>();
+        parameters.put("NRM", a);
+        parameters.put("POLI", pol);
+        parameters.put("NOMOR", no);
+        parameters.put("TGL", tgl);
+        try {
+            JasperPrint jp = JasperFillManager.fillReport(getClass()
+                    .getResourceAsStream("../../../../../cetak/cetakNomor.jasper"), 
+                    parameters, conn);
+            JasperViewer.viewReport(jp, false);
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(rootPane, e);
         }
     }
     
