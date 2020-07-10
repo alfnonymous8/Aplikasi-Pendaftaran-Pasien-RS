@@ -32,7 +32,7 @@ public class Home extends javax.swing.JFrame {
 
         btnDaftar = new javax.swing.JButton();
         btnLogin = new javax.swing.JButton();
-        btnHome = new javax.swing.JButton();
+        btnInfo = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -53,10 +53,10 @@ public class Home extends javax.swing.JFrame {
             }
         });
 
-        btnHome.setText("Info COVID-19");
-        btnHome.addActionListener(new java.awt.event.ActionListener() {
+        btnInfo.setText("Info COVID-19");
+        btnInfo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnHomeActionPerformed(evt);
+                btnInfoActionPerformed(evt);
             }
         });
 
@@ -75,7 +75,7 @@ public class Home extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(108, 108, 108)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(btnHome, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnInfo, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                 .addComponent(btnDaftar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(btnLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)))))
@@ -87,7 +87,7 @@ public class Home extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(jLabel1)
                 .addGap(43, 43, 43)
-                .addComponent(btnHome)
+                .addComponent(btnInfo)
                 .addGap(18, 18, 18)
                 .addComponent(btnDaftar)
                 .addGap(18, 18, 18)
@@ -115,13 +115,13 @@ public class Home extends javax.swing.JFrame {
         login.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
     }//GEN-LAST:event_btnLoginActionPerformed
 
-    InfoCovid home = new InfoCovid();
-    private void btnHomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHomeActionPerformed
+    InfoCovid info = new InfoCovid();
+    private void btnInfoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInfoActionPerformed
         // TODO add your handling code here:
         dispose();
-        home.setVisible(true);
-        home.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
-    }//GEN-LAST:event_btnHomeActionPerformed
+        info.setVisible(true);
+        info.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+    }//GEN-LAST:event_btnInfoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -161,7 +161,7 @@ public class Home extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnDaftar;
-    private javax.swing.JButton btnHome;
+    private javax.swing.JButton btnInfo;
     private javax.swing.JButton btnLogin;
     private javax.swing.JLabel jLabel1;
     // End of variables declaration//GEN-END:variables

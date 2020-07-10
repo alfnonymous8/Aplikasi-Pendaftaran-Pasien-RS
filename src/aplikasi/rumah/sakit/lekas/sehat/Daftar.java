@@ -47,7 +47,6 @@ public class Daftar extends javax.swing.JFrame {
         txtNama = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
         rdLaki = new javax.swing.JRadioButton();
-        txtPassword = new javax.swing.JTextField();
         tglLahir = new com.github.lgooddatepicker.components.DatePicker();
         jLabel4 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
@@ -57,6 +56,9 @@ public class Daftar extends javax.swing.JFrame {
         txtNRM = new javax.swing.JTextField();
         jLabel8 = new javax.swing.JLabel();
         jRadioButton3 = new javax.swing.JRadioButton();
+        txtConfirm = new javax.swing.JPasswordField();
+        txtPassword = new javax.swing.JPasswordField();
+        jLabel10 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setLocation(new java.awt.Point(400, 400));
@@ -64,6 +66,8 @@ public class Daftar extends javax.swing.JFrame {
 
         jLabel1.setText("Silahkan masukkan data dengan benar");
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+
+        jScrollPane2.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
 
         txtAlamat.setColumns(20);
         txtAlamat.setLineWrap(true);
@@ -139,39 +143,46 @@ public class Daftar extends javax.swing.JFrame {
         buttonGroup1.add(jRadioButton3);
         jRadioButton3.setText("Perempuan");
 
+        jLabel10.setText("9. Konfirmasi Password");
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel7)
-                    .addComponent(jLabel6)
-                    .addComponent(jLabel8)
-                    .addComponent(jLabel9)
-                    .addComponent(jLabel3)
-                    .addComponent(jLabel4)
-                    .addComponent(jLabel5)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(10, 10, 10)
+                        .addContainerGap()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel7)
+                            .addComponent(jLabel6)
+                            .addComponent(jLabel8)
+                            .addComponent(jLabel9)
+                            .addComponent(jLabel3)
+                            .addComponent(jLabel4)
+                            .addComponent(jLabel5)
+                            .addComponent(jLabel2)
+                            .addComponent(jLabel10)
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(rdLaki)
-                                .addGap(18, 18, 18)
-                                .addComponent(jRadioButton3))
-                            .addComponent(txtNRM, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtNama, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(tglLahir, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addComponent(btnSubmit, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(10, 10, 10)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                        .addComponent(rdLaki)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(jRadioButton3))
+                                    .addComponent(txtNRM, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(txtNama, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(tglLahir, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(txtPonsel, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 228, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(txtEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(txtPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                    .addComponent(jLabel2))
-                .addContainerGap(193, Short.MAX_VALUE))
+                                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                        .addComponent(txtPassword, javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(txtConfirm, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 152, Short.MAX_VALUE))))))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(149, 149, 149)
+                        .addComponent(btnSubmit, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(204, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -210,9 +221,13 @@ public class Daftar extends javax.swing.JFrame {
                 .addComponent(jLabel9)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(txtPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 47, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
+                .addComponent(jLabel10)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(txtConfirm, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(43, 43, 43)
                 .addComponent(btnSubmit)
-                .addContainerGap())
+                .addContainerGap(116, Short.MAX_VALUE))
         );
 
         jScrollPane2.setViewportView(jPanel1);
@@ -221,11 +236,11 @@ public class Daftar extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 460, Short.MAX_VALUE)
             .addGroup(layout.createSequentialGroup()
                 .addGap(79, 79, 79)
                 .addComponent(jLabel1)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(85, Short.MAX_VALUE))
+            .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -233,92 +248,92 @@ public class Daftar extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(jLabel1)
                 .addGap(18, 18, 18)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 265, Short.MAX_VALUE))
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 271, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void rdLakiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rdLakiActionPerformed
+    private void txtNRMKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNRMKeyPressed
         // TODO add your handling code here:
-    }//GEN-LAST:event_rdLakiActionPerformed
+        if(evt.getKeyChar()>='A'&&evt.getKeyChar()<='Z' ||
+            evt.getKeyChar()>='0'&&evt.getKeyChar()<='9' ||
+            evt.getKeyCode() == java.awt.event.KeyEvent.VK_BACK_SPACE ||
+            evt.getKeyCode() == java.awt.event.KeyEvent.VK_DELETE){
+            txtNRM.setEditable(true);
+        } else {
+            txtNRM.setEditable(false);
+        }
+    }//GEN-LAST:event_txtNRMKeyPressed
+
+    private void txtNRMActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNRMActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtNRMActionPerformed
 
     private void btnSubmitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSubmitActionPerformed
         // TODO add your handling code here:
         cekNrm();
     }//GEN-LAST:event_btnSubmitActionPerformed
 
-    private void txtNRMActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNRMActionPerformed
+    private void rdLakiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rdLakiActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtNRMActionPerformed
-
-    private void txtNRMKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNRMKeyPressed
-        // TODO add your handling code here:
-        if(evt.getKeyChar()>='A'&&evt.getKeyChar()<='Z' ||
-                evt.getKeyChar()>='0'&&evt.getKeyChar()<='9' || 
-                evt.getKeyCode() == java.awt.event.KeyEvent.VK_BACK_SPACE ||
-                evt.getKeyCode() == java.awt.event.KeyEvent.VK_DELETE){
-            txtNRM.setEditable(true);
-        } else {
-            txtNRM.setEditable(false);
-        } 
-    }//GEN-LAST:event_txtNRMKeyPressed
+    }//GEN-LAST:event_rdLakiActionPerformed
 
     private void txtNamaKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNamaKeyPressed
         // TODO add your handling code here:
         if( evt.getKeyChar()>='a'&&evt.getKeyChar()<='z' ||
-                evt.getKeyChar()>='A'&&evt.getKeyChar()<='Z' || 
-                evt.getKeyCode() == java.awt.event.KeyEvent.VK_BACK_SPACE ||
-                evt.getKeyCode() == java.awt.event.KeyEvent.VK_SPACE ||
-                evt.getKeyCode() == java.awt.event.KeyEvent.VK_DELETE){
+            evt.getKeyChar()>='A'&&evt.getKeyChar()<='Z' ||
+            evt.getKeyCode() == java.awt.event.KeyEvent.VK_BACK_SPACE ||
+            evt.getKeyCode() == java.awt.event.KeyEvent.VK_SPACE ||
+            evt.getKeyCode() == java.awt.event.KeyEvent.VK_DELETE){
             txtNama.setEditable(true);
         } else {
             txtNama.setEditable(false);
-        } 
+        }
     }//GEN-LAST:event_txtNamaKeyPressed
 
     private void txtPonselKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtPonselKeyPressed
         // TODO add your handling code here:
-        if(evt.getKeyChar()>='0'&&evt.getKeyChar()<='9' || 
-                evt.getKeyCode() == java.awt.event.KeyEvent.VK_BACK_SPACE ||
-                evt.getKeyCode() == java.awt.event.KeyEvent.VK_DELETE){
+        if(evt.getKeyChar()>='0'&&evt.getKeyChar()<='9' ||
+            evt.getKeyCode() == java.awt.event.KeyEvent.VK_BACK_SPACE ||
+            evt.getKeyCode() == java.awt.event.KeyEvent.VK_DELETE){
             txtPonsel.setEditable(true);
         } else {
             txtPonsel.setEditable(false);
-        } 
+        }
     }//GEN-LAST:event_txtPonselKeyPressed
-
-    private void txtAlamatKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtAlamatKeyPressed
-        // TODO add your handling code here:
-        if( evt.getKeyChar()>='a'&&evt.getKeyChar()<='z' ||
-                evt.getKeyChar()>='A'&&evt.getKeyChar()<='Z' ||
-                evt.getKeyChar()>='0'&&evt.getKeyChar()<='9' ||
-                evt.getKeyChar()<=':' ||
-                evt.getKeyChar()<='/' ||
-                evt.getKeyChar()<='.' ||
-                evt.getKeyCode() == java.awt.event.KeyEvent.VK_SPACE ||
-                evt.getKeyCode() == java.awt.event.KeyEvent.VK_BACK_SPACE ||
-                evt.getKeyCode() == java.awt.event.KeyEvent.VK_DELETE){
-            txtAlamat.setEditable(true);
-        } else {
-            txtAlamat.setEditable(false);
-        } 
-    }//GEN-LAST:event_txtAlamatKeyPressed
 
     private void txtEmailKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtEmailKeyPressed
         // TODO add your handling code here:
         if( evt.getKeyChar()>='a'&&evt.getKeyChar()<='z' ||
-                evt.getKeyChar()>='A'&&evt.getKeyChar()<='Z' ||
-                evt.getKeyChar()>='0'&&evt.getKeyChar()<='9' || 
-                evt.getKeyChar()<='@' ||
-                evt.getKeyChar()<='.' ||
-                evt.getKeyCode() == java.awt.event.KeyEvent.VK_BACK_SPACE ||
-                evt.getKeyCode() == java.awt.event.KeyEvent.VK_DELETE){
+            evt.getKeyChar()>='A'&&evt.getKeyChar()<='Z' ||
+            evt.getKeyChar()>='0'&&evt.getKeyChar()<='9' ||
+            evt.getKeyChar()<='@' ||
+            evt.getKeyChar()<='.' ||
+            evt.getKeyCode() == java.awt.event.KeyEvent.VK_BACK_SPACE ||
+            evt.getKeyCode() == java.awt.event.KeyEvent.VK_DELETE){
             txtEmail.setEditable(true);
         } else {
             txtEmail.setEditable(false);
-        } 
+        }
     }//GEN-LAST:event_txtEmailKeyPressed
+
+    private void txtAlamatKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtAlamatKeyPressed
+        // TODO add your handling code here:
+        if( evt.getKeyChar()>='a'&&evt.getKeyChar()<='z' ||
+            evt.getKeyChar()>='A'&&evt.getKeyChar()<='Z' ||
+            evt.getKeyChar()>='0'&&evt.getKeyChar()<='9' ||
+            evt.getKeyChar()<=':' ||
+            evt.getKeyChar()<='/' ||
+            evt.getKeyChar()<='.' ||
+            evt.getKeyCode() == java.awt.event.KeyEvent.VK_SPACE ||
+            evt.getKeyCode() == java.awt.event.KeyEvent.VK_BACK_SPACE ||
+            evt.getKeyCode() == java.awt.event.KeyEvent.VK_DELETE){
+            txtAlamat.setEditable(true);
+        } else {
+            txtAlamat.setEditable(false);
+        }
+    }//GEN-LAST:event_txtAlamatKeyPressed
 
     Connection conn = Koneksi.connectDB();
     public void cekNrm(){
@@ -369,12 +384,22 @@ public class Daftar extends javax.swing.JFrame {
             Statement stmt = conn.createStatement();
             ResultSet rs = stmt.executeQuery(sql);
             if (rs.next() == false) {
-                inputData();
+                cekPass();
             }else{
                 JOptionPane.showMessageDialog(null, "Email sudah terdaftar!!\nSilahkan gunakan email lain.", "Warning!", JOptionPane.PLAIN_MESSAGE);
             }
         }catch(SQLException e){
             System.out.println(e.getMessage());
+        }
+    }
+    
+    public void cekPass(){
+        String pass = txtPassword.getText();
+        String konf = txtConfirm.getText();
+        if (pass.equals(konf)) {
+            inputData();
+        } else {
+            JOptionPane.showMessageDialog(null, "Password tidak cocok", "Warning!", JOptionPane.PLAIN_MESSAGE);
         }
     }
     
@@ -458,6 +483,7 @@ public class Daftar extends javax.swing.JFrame {
     private javax.swing.JButton btnSubmit;
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -473,10 +499,11 @@ public class Daftar extends javax.swing.JFrame {
     private javax.swing.JRadioButton rdLaki;
     private com.github.lgooddatepicker.components.DatePicker tglLahir;
     private javax.swing.JTextArea txtAlamat;
+    private javax.swing.JPasswordField txtConfirm;
     private javax.swing.JTextField txtEmail;
     private javax.swing.JTextField txtNRM;
     private javax.swing.JTextField txtNama;
-    private javax.swing.JTextField txtPassword;
+    private javax.swing.JPasswordField txtPassword;
     private javax.swing.JTextField txtPonsel;
     // End of variables declaration//GEN-END:variables
 }

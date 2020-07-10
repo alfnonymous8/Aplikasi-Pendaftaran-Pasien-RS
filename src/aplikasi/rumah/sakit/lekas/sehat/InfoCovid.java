@@ -55,6 +55,8 @@ public class InfoCovid extends javax.swing.JFrame {
         barChartPanel = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setLocation(new java.awt.Point(400, 200));
+        setResizable(false);
 
         barChartPanel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         barChartPanel.setLayout(new java.awt.BorderLayout());
