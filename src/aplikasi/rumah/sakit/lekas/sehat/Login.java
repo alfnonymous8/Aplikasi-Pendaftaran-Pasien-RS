@@ -173,6 +173,7 @@ public class Login extends javax.swing.JFrame {
                 }
                 Utama.NRM = (rs.getString("nrm"));
                 Utama.NAMA = (rs.getString("nama"));
+                Utama.JENIS = (rs.getString("jenis"));
             }
         }catch(SQLException e){
             System.out.println(e.getMessage());

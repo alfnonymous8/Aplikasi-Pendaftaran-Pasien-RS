@@ -12,6 +12,7 @@
 	<parameter name="TGL" class="java.lang.String"/>
 	<parameter name="USIA" class="java.lang.String"/>
 	<parameter name="NAMA" class="java.lang.String"/>
+	<parameter name="JENIS" class="java.lang.String"/>
 	<queryString>
 		<![CDATA[SELECT * FROM data_pengguna]]>
 	</queryString>
@@ -71,51 +72,51 @@
 		<band splitType="Stretch"/>
 	</columnFooter>
 	<pageFooter>
-		<band height="201" splitType="Stretch">
+		<band height="228" splitType="Stretch">
 			<staticText>
-				<reportElement x="0" y="171" width="206" height="28" uuid="0bf06e31-b81c-4e23-89f9-2a1df5f9a63c"/>
+				<reportElement x="0" y="197" width="206" height="28" uuid="0bf06e31-b81c-4e23-89f9-2a1df5f9a63c"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="9"/>
 				</textElement>
 				<text><![CDATA[Bawa bukti ini dalam bentuk tangkapan layar saat datang ke dokter]]></text>
 			</staticText>
 			<textField>
-				<reportElement x="106" y="91" width="100" height="20" uuid="a388b5a5-15de-4e97-ac26-4868f00920b3"/>
+				<reportElement x="106" y="117" width="100" height="20" uuid="a388b5a5-15de-4e97-ac26-4868f00920b3"/>
 				<textElement textAlignment="Right"/>
 				<textFieldExpression><![CDATA[$P{POLI}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="106" y="131" width="100" height="20" uuid="7f185441-a19e-42ac-adf9-9d43c52955a8"/>
+				<reportElement x="106" y="157" width="100" height="20" uuid="7f185441-a19e-42ac-adf9-9d43c52955a8"/>
 				<textElement textAlignment="Right"/>
 				<textFieldExpression><![CDATA[$P{NOMOR}]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement x="0" y="91" width="71" height="20" uuid="113d70f4-6e22-4f13-babe-96f34d9763a5"/>
+				<reportElement x="0" y="117" width="71" height="20" uuid="113d70f4-6e22-4f13-babe-96f34d9763a5"/>
 				<text><![CDATA[Poli Tujuan]]></text>
 			</staticText>
 			<textField>
-				<reportElement x="107" y="151" width="99" height="11" uuid="b98fdfc7-524c-43eb-a69b-7753e75ea00f"/>
+				<reportElement x="107" y="177" width="99" height="11" uuid="b98fdfc7-524c-43eb-a69b-7753e75ea00f"/>
 				<box>
 					<bottomPen lineWidth="1.5" lineStyle="Dotted"/>
 				</box>
 			</textField>
 			<textField>
-				<reportElement x="0" y="151" width="107" height="11" uuid="eb22a152-1799-4c99-8dcb-690aff4b1a64"/>
+				<reportElement x="0" y="177" width="107" height="11" uuid="eb22a152-1799-4c99-8dcb-690aff4b1a64"/>
 				<box>
 					<bottomPen lineWidth="1.5" lineStyle="Dotted"/>
 				</box>
 			</textField>
 			<textField>
-				<reportElement x="106" y="111" width="100" height="20" uuid="ca6d0384-4052-4e64-bb71-f8d547c485a7"/>
+				<reportElement x="106" y="137" width="100" height="20" uuid="ca6d0384-4052-4e64-bb71-f8d547c485a7"/>
 				<textElement textAlignment="Right"/>
 				<textFieldExpression><![CDATA[$P{TGL}]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement x="0" y="131" width="71" height="20" uuid="d36b97c8-b4f5-492e-bbe7-03ac95e2a124"/>
+				<reportElement x="0" y="157" width="71" height="20" uuid="d36b97c8-b4f5-492e-bbe7-03ac95e2a124"/>
 				<text><![CDATA[Nomor Antrian]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="0" y="111" width="71" height="20" uuid="03d2ccd6-e28b-41c2-893e-ddd5f88e9f91"/>
+				<reportElement x="0" y="137" width="71" height="20" uuid="03d2ccd6-e28b-41c2-893e-ddd5f88e9f91"/>
 				<text><![CDATA[Tanggal]]></text>
 			</staticText>
 			<textField>
@@ -144,6 +145,27 @@
 				<reportElement x="106" y="53" width="100" height="20" uuid="9ae99782-af4a-4cb6-93cf-dd5a447feaad"/>
 				<textElement textAlignment="Right"/>
 				<textFieldExpression><![CDATA[$P{USIA}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="107" y="100" width="99" height="11" uuid="c4dc2d4e-ac9e-47a9-8457-f711df51a1a6"/>
+				<box>
+					<bottomPen lineWidth="1.5" lineStyle="Dotted"/>
+				</box>
+			</textField>
+			<textField>
+				<reportElement x="0" y="100" width="107" height="11" uuid="7cfd8cb4-4145-4bf6-9cf8-7b70a40acfa0"/>
+				<box>
+					<bottomPen lineWidth="1.5" lineStyle="Dotted"/>
+				</box>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="73" width="71" height="20" uuid="31ef591e-87aa-48a8-be58-9c7f14842637"/>
+				<text><![CDATA[Jenis Kelamin]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="106" y="73" width="100" height="20" uuid="b58ca03f-d0fa-4d67-b6ac-8a556fd111ba"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA[$P{JENIS}]]></textFieldExpression>
 			</textField>
 		</band>
 	</pageFooter>

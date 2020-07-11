@@ -412,7 +412,7 @@ public class Daftar extends javax.swing.JFrame {
                 String tgl = tglLahir.getDateStringOrEmptyString();
                 
                 if(rdLaki.isSelected()){
-                   jk += "Lelaki";
+                   jk += "Laki - laki";
                 } else {
                     jk += "Perempuan";
                 }

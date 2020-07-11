@@ -238,7 +238,6 @@ public class Antrian extends javax.swing.JFrame {
         if (tgl == "") {
             JOptionPane.showMessageDialog(null, "Anda belum memilih tanggal", "Warning!", JOptionPane.PLAIN_MESSAGE);
         } else {
-            System.out.println("NRM : " + NRM + "\nPoli tujuan : " + pol + "\n" + tgl);
         }
         
         ambilNo();
@@ -262,7 +261,6 @@ public class Antrian extends javax.swing.JFrame {
     }
     
     public void input(){
-        System.out.println(noAntri);
         try{
             Statement stmt = conn.createStatement();
             stmt.executeUpdate("INSERT INTO antrian(spesialis,tanggal,no_antri,nrm)" 
@@ -294,7 +292,6 @@ public class Antrian extends javax.swing.JFrame {
         LocalDate now = LocalDate.now();
         Period usia = Period.between(lahir, now);
         usiaa = String.valueOf(usia.getYears());
-//        System.out.println(usia.getYears());
     }
     
     public void cetak(){
@@ -304,6 +301,7 @@ public class Antrian extends javax.swing.JFrame {
         parameters.put("NRM", Utama.NRM);
         parameters.put("NAMA", Utama.NAMA);
         parameters.put("USIA", usiaa);
+        parameters.put("JENIS", Utama.JENIS);
         parameters.put("POLI", pol);
         parameters.put("NOMOR", no);
         parameters.put("TGL", tgl);
@@ -315,6 +313,7 @@ public class Antrian extends javax.swing.JFrame {
         } catch (Exception e) {
             JOptionPane.showMessageDialog(rootPane, e);
         }
+        this.dispose();
     }
     
     /**
