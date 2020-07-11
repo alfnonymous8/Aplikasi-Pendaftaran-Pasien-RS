@@ -30,9 +30,9 @@
 		</band>
 	</title>
 	<pageHeader>
-		<band height="63" splitType="Stretch">
+		<band height="53" splitType="Stretch">
 			<staticText>
-				<reportElement x="1" y="0" width="206" height="56" uuid="0a59126c-ff69-4457-b604-3ef489ccb60e"/>
+				<reportElement x="1" y="0" width="206" height="50" uuid="0a59126c-ff69-4457-b604-3ef489ccb60e"/>
 				<box>
 					<pen lineStyle="Dashed"/>
 					<topPen lineStyle="Dashed"/>
@@ -46,7 +46,7 @@
 		</band>
 	</pageHeader>
 	<columnHeader>
-		<band height="37" splitType="Stretch">
+		<band splitType="Stretch">
 			<textField>
 				<reportElement x="106" y="0" width="99" height="0" uuid="5f4196f9-b38f-4bc9-8981-b99f80ebd4f8"/>
 				<box>
@@ -68,9 +68,9 @@
 		<band splitType="Stretch"/>
 	</columnFooter>
 	<pageFooter>
-		<band height="218" splitType="Stretch">
+		<band height="156" splitType="Stretch">
 			<staticText>
-				<reportElement x="1" y="141" width="206" height="28" uuid="0bf06e31-b81c-4e23-89f9-2a1df5f9a63c"/>
+				<reportElement x="1" y="120" width="206" height="28" uuid="0bf06e31-b81c-4e23-89f9-2a1df5f9a63c"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="9"/>
 				</textElement>
@@ -91,13 +91,13 @@
 				<text><![CDATA[Poli Tujuan]]></text>
 			</staticText>
 			<textField>
-				<reportElement x="108" y="91" width="99" height="30" uuid="b98fdfc7-524c-43eb-a69b-7753e75ea00f"/>
+				<reportElement x="107" y="100" width="99" height="11" uuid="b98fdfc7-524c-43eb-a69b-7753e75ea00f"/>
 				<box>
 					<bottomPen lineWidth="1.5" lineStyle="Dotted"/>
 				</box>
 			</textField>
 			<textField>
-				<reportElement x="1" y="91" width="107" height="30" uuid="eb22a152-1799-4c99-8dcb-690aff4b1a64"/>
+				<reportElement x="0" y="100" width="107" height="11" uuid="eb22a152-1799-4c99-8dcb-690aff4b1a64"/>
 				<box>
 					<bottomPen lineWidth="1.5" lineStyle="Dotted"/>
 				</box>

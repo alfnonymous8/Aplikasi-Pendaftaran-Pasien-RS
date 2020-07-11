@@ -274,10 +274,9 @@ public class Antrian extends javax.swing.JFrame {
     
     public void cetak(){
         String no = String.valueOf(noAntri);
-        String a = "asdkjnasdk";
         
         Map<String, Object> parameters = new HashMap<String, Object>();
-        parameters.put("NRM", a);
+        parameters.put("NRM", Utama.NRM);
         parameters.put("POLI", pol);
         parameters.put("NOMOR", no);
         parameters.put("TGL", tgl);
