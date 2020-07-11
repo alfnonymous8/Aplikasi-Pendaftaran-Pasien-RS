@@ -11,7 +11,7 @@ package aplikasi.rumah.sakit.lekas.sehat;
  */
 public class Utama extends javax.swing.JFrame {
 
-    static String NRM;
+    static String NRM, NAMA;
     /**
      * Creates new form Utama
      */

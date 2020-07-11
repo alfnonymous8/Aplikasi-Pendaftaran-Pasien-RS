@@ -172,6 +172,7 @@ public class Login extends javax.swing.JFrame {
                     JOptionPane.showMessageDialog(null, "Password salah!!", "Warning!", JOptionPane.PLAIN_MESSAGE);
                 }
                 Utama.NRM = (rs.getString("nrm"));
+                Utama.NAMA = (rs.getString("nama"));
             }
         }catch(SQLException e){
             System.out.println(e.getMessage());

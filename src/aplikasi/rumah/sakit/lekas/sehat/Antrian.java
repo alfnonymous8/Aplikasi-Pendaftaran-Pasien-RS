@@ -10,6 +10,12 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.text.NumberFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.time.Period;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 import javax.swing.JOptionPane;
@@ -25,6 +31,8 @@ public class Antrian extends javax.swing.JFrame {
     String pol = "";
     String tgl = "";
     int noAntri = 0;
+    String tahun = "";
+    String usiaa = "";
 
     /**
      * Creates new form Antrian
@@ -226,7 +234,6 @@ public class Antrian extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Anda belum memilih tujuan", "Warning!", JOptionPane.PLAIN_MESSAGE);
         }
         
-        
         tgl = tglAntri.getDateStringOrEmptyString();
         if (tgl == "") {
             JOptionPane.showMessageDialog(null, "Anda belum memilih tanggal", "Warning!", JOptionPane.PLAIN_MESSAGE);
@@ -265,11 +272,29 @@ public class Antrian extends javax.swing.JFrame {
             "', '" + Utama.NRM +        
             "')");
  
-            cetak();
-            
+            usia();
+            cetak();            
         }catch(SQLException e){
             System.out.println(e.getMessage());
         }
+    }
+    
+    public void usia() {
+        try {
+            Statement stmt = conn.createStatement();
+            ResultSet rs = stmt.executeQuery("SELECT tanggal FROM data_pengguna WHERE nrm like '%" + Utama.NRM + "%'");
+            if (rs.next() == true) {
+                this.tahun = (rs.getString("tanggal"));                
+            }else{
+                JOptionPane.showMessageDialog(null, "ERROR!!!", "ERROR!!!", JOptionPane.PLAIN_MESSAGE);
+            }            
+        } catch (Exception e) {
+        }
+        LocalDate lahir = LocalDate.parse(tahun);
+        LocalDate now = LocalDate.now();
+        Period usia = Period.between(lahir, now);
+        usiaa = String.valueOf(usia.getYears());
+//        System.out.println(usia.getYears());
     }
     
     public void cetak(){
@@ -277,6 +302,8 @@ public class Antrian extends javax.swing.JFrame {
         
         Map<String, Object> parameters = new HashMap<String, Object>();
         parameters.put("NRM", Utama.NRM);
+        parameters.put("NAMA", Utama.NAMA);
+        parameters.put("USIA", usiaa);
         parameters.put("POLI", pol);
         parameters.put("NOMOR", no);
         parameters.put("TGL", tgl);

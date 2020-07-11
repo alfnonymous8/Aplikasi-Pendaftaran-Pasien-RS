@@ -5,14 +5,17 @@
 	<property name="ireport.x" value="0"/>
 	<property name="ireport.y" value="0"/>
 	<property name="com.jaspersoft.studio.report.description" value=""/>
+	<property name="com.jaspersoft.studio.data.sql.tables" value="ZGF0YV9wZW5nZ3VuYSAsMTUsMTUsNTgxZTQ0YTItNTg2OC00YmE2LTk0ZjAtODI3ZTUyODVjYzUy&#xA;Ow==&#xA;"/>
 	<parameter name="NRM" class="java.lang.String"/>
 	<parameter name="POLI" class="java.lang.String"/>
 	<parameter name="NOMOR" class="java.lang.String"/>
 	<parameter name="TGL" class="java.lang.String"/>
+	<parameter name="USIA" class="java.lang.String"/>
+	<parameter name="NAMA" class="java.lang.String"/>
 	<queryString>
-		<![CDATA[SELECT * FROM antrian]]>
+		<![CDATA[SELECT * FROM data_pengguna]]>
 	</queryString>
-	<field name="NRM" class="java.lang.String">
+	<field name="nama" class="java.lang.String">
 		<fieldDescription><![CDATA[]]></fieldDescription>
 	</field>
 	<background>
@@ -32,7 +35,7 @@
 	<pageHeader>
 		<band height="53" splitType="Stretch">
 			<staticText>
-				<reportElement x="1" y="0" width="206" height="50" uuid="0a59126c-ff69-4457-b604-3ef489ccb60e"/>
+				<reportElement x="0" y="0" width="206" height="50" uuid="0a59126c-ff69-4457-b604-3ef489ccb60e"/>
 				<box>
 					<pen lineStyle="Dashed"/>
 					<topPen lineStyle="Dashed"/>
@@ -68,55 +71,55 @@
 		<band splitType="Stretch"/>
 	</columnFooter>
 	<pageFooter>
-		<band height="156" splitType="Stretch">
+		<band height="201" splitType="Stretch">
 			<staticText>
-				<reportElement x="1" y="120" width="206" height="28" uuid="0bf06e31-b81c-4e23-89f9-2a1df5f9a63c"/>
+				<reportElement x="0" y="171" width="206" height="28" uuid="0bf06e31-b81c-4e23-89f9-2a1df5f9a63c"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="9"/>
 				</textElement>
 				<text><![CDATA[Bawa bukti ini dalam bentuk tangkapan layar saat datang ke dokter]]></text>
 			</staticText>
 			<textField>
-				<reportElement x="106" y="40" width="100" height="20" uuid="a388b5a5-15de-4e97-ac26-4868f00920b3"/>
+				<reportElement x="106" y="91" width="100" height="20" uuid="a388b5a5-15de-4e97-ac26-4868f00920b3"/>
 				<textElement textAlignment="Right"/>
 				<textFieldExpression><![CDATA[$P{POLI}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="106" y="60" width="100" height="20" uuid="7f185441-a19e-42ac-adf9-9d43c52955a8"/>
+				<reportElement x="106" y="131" width="100" height="20" uuid="7f185441-a19e-42ac-adf9-9d43c52955a8"/>
 				<textElement textAlignment="Right"/>
 				<textFieldExpression><![CDATA[$P{NOMOR}]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement x="1" y="40" width="71" height="20" uuid="113d70f4-6e22-4f13-babe-96f34d9763a5"/>
+				<reportElement x="0" y="91" width="71" height="20" uuid="113d70f4-6e22-4f13-babe-96f34d9763a5"/>
 				<text><![CDATA[Poli Tujuan]]></text>
 			</staticText>
 			<textField>
-				<reportElement x="107" y="100" width="99" height="11" uuid="b98fdfc7-524c-43eb-a69b-7753e75ea00f"/>
+				<reportElement x="107" y="151" width="99" height="11" uuid="b98fdfc7-524c-43eb-a69b-7753e75ea00f"/>
 				<box>
 					<bottomPen lineWidth="1.5" lineStyle="Dotted"/>
 				</box>
 			</textField>
 			<textField>
-				<reportElement x="0" y="100" width="107" height="11" uuid="eb22a152-1799-4c99-8dcb-690aff4b1a64"/>
+				<reportElement x="0" y="151" width="107" height="11" uuid="eb22a152-1799-4c99-8dcb-690aff4b1a64"/>
 				<box>
 					<bottomPen lineWidth="1.5" lineStyle="Dotted"/>
 				</box>
 			</textField>
 			<textField>
-				<reportElement x="106" y="80" width="100" height="20" uuid="ca6d0384-4052-4e64-bb71-f8d547c485a7"/>
+				<reportElement x="106" y="111" width="100" height="20" uuid="ca6d0384-4052-4e64-bb71-f8d547c485a7"/>
 				<textElement textAlignment="Right"/>
 				<textFieldExpression><![CDATA[$P{TGL}]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement x="1" y="60" width="71" height="20" uuid="d36b97c8-b4f5-492e-bbe7-03ac95e2a124"/>
+				<reportElement x="0" y="131" width="71" height="20" uuid="d36b97c8-b4f5-492e-bbe7-03ac95e2a124"/>
 				<text><![CDATA[Nomor Antrian]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="1" y="80" width="71" height="20" uuid="03d2ccd6-e28b-41c2-893e-ddd5f88e9f91"/>
+				<reportElement x="0" y="111" width="71" height="20" uuid="03d2ccd6-e28b-41c2-893e-ddd5f88e9f91"/>
 				<text><![CDATA[Tanggal]]></text>
 			</staticText>
 			<textField>
-				<reportElement x="107" y="13" width="100" height="20" uuid="16a140b5-76f0-4ab5-b4db-96fa745c309d"/>
+				<reportElement x="106" y="13" width="100" height="20" uuid="16a140b5-76f0-4ab5-b4db-96fa745c309d"/>
 				<textElement textAlignment="Right"/>
 				<textFieldExpression><![CDATA[$P{NRM}]]></textFieldExpression>
 			</textField>
@@ -124,6 +127,24 @@
 				<reportElement x="0" y="13" width="71" height="20" uuid="3b45c688-8c6a-49f9-9a8a-0a624e698041"/>
 				<text><![CDATA[NRM]]></text>
 			</staticText>
+			<staticText>
+				<reportElement x="0" y="33" width="71" height="20" uuid="5d582df8-5e82-4f8f-bcdc-b391572cc7c3"/>
+				<text><![CDATA[Nama Pasien]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="106" y="33" width="100" height="20" uuid="1419b9f7-7326-4d88-8303-f469ca33fadd"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA[$P{NAMA}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="53" width="71" height="20" uuid="9cfdbd1a-b14f-451e-b246-555c811b25a5"/>
+				<text><![CDATA[Usia]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="106" y="53" width="100" height="20" uuid="9ae99782-af4a-4cb6-93cf-dd5a447feaad"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA[$P{USIA}]]></textFieldExpression>
+			</textField>
 		</band>
 	</pageFooter>
 	<summary>
