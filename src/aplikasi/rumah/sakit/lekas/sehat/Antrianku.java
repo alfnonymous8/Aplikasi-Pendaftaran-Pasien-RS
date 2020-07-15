@@ -29,7 +29,7 @@ public class Antrianku extends javax.swing.JFrame {
      */
     public Antrianku() {
         initComponents();
-        loadTabelProduk();
+        loadTabelAntrian();
     }
 
     /**
@@ -47,6 +47,7 @@ public class Antrianku extends javax.swing.JFrame {
         btnHapus = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         txtCari = new javax.swing.JTextField();
+        btnCari = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setLocation(new java.awt.Point(400, 400));
@@ -87,12 +88,22 @@ public class Antrianku extends javax.swing.JFrame {
             }
         });
 
+        btnCari.setText("Cari");
+        btnCari.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCariActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jScrollPane1))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(20, 20, 20)
                         .addComponent(btnTambah)
@@ -101,10 +112,11 @@ public class Antrianku extends javax.swing.JFrame {
                         .addGap(53, 53, 53)
                         .addComponent(jLabel1)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtCari))
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jScrollPane1)))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(btnCari, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(0, 0, Short.MAX_VALUE))
+                            .addComponent(txtCari))))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -119,9 +131,11 @@ public class Antrianku extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(1, 1, 1)
                         .addComponent(txtCari, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(18, 18, 18)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 222, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(25, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btnCari)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 12, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 213, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
 
         pack();
@@ -150,7 +164,7 @@ public class Antrianku extends javax.swing.JFrame {
                     Statement stmt = conn.createStatement();
                     stmt.executeUpdate("DELETE FROM antrian WHERE id='"
                     + selectedID + "'");
-                    loadTabelProduk();
+                    loadTabelAntrian();
                 }catch(SQLException e){
                     System.out.println(e.getMessage());
                 }
@@ -166,14 +180,22 @@ public class Antrianku extends javax.swing.JFrame {
                 evt.getKeyCode() == java.awt.event.KeyEvent.VK_SPACE ||
                 evt.getKeyCode() == java.awt.event.KeyEvent.VK_BACK_SPACE ||
                 evt.getKeyCode() == java.awt.event.KeyEvent.VK_DELETE){
-            txtCari.setEditable(true);
+                txtCari.setEditable(true);
+                String teks = txtCari.getText();
+                loadTabelAntrian(teks);
         } else if(evt.getKeyCode()== KeyEvent.VK_ENTER){
                     String teks = txtCari.getText();
-                    loadTabelProduk(teks);
+                    loadTabelAntrian(teks);
         }else {
             txtCari.setEditable(false);
         }
     }//GEN-LAST:event_txtCariKeyPressed
+
+    private void btnCariActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCariActionPerformed
+        // TODO add your handling code here:
+        String teks = txtCari.getText();
+        loadTabelAntrian(teks);
+    }//GEN-LAST:event_btnCariActionPerformed
 
     /**
      * @param args the command line arguments
@@ -212,7 +234,7 @@ public class Antrianku extends javax.swing.JFrame {
     }
     
     Connection conn = Koneksi.connectDB();
-    public void loadTabelProduk(){
+    public void loadTabelAntrian(){
         String sql = "SELECT * FROM antrian WHERE nrm LIKE '" + Utama.NRM + "' ORDER BY tanggal";
         Object[] kolom = { "ID", "Poli Tujuan", "Tanggal", "Nomor Antrian"};
         DefaultTableModel dataModel = new DefaultTableModel (null, kolom);
@@ -238,7 +260,7 @@ public class Antrianku extends javax.swing.JFrame {
         }
     }
     
-    public void loadTabelProduk(String teks){
+    public void loadTabelAntrian(String teks){
         String sql = "SELECT * FROM antrian WHERE nrm LIKE '" + Utama.NRM + "' && spesialis like '%"+ teks +"%' ORDER BY tanggal";
         Object[] kolom = { "ID", "Poli Tujuan", "Tanggal", "Nomor Antrian"};
         DefaultTableModel dataModel = new DefaultTableModel (null, kolom);
@@ -265,6 +287,7 @@ public class Antrianku extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnCari;
     private javax.swing.JButton btnHapus;
     private javax.swing.JButton btnTambah;
     private javax.swing.JLabel jLabel1;
