@@ -256,6 +256,7 @@ public class Antrian extends javax.swing.JFrame {
                 input();
             }else{
                 JOptionPane.showMessageDialog(null, "ERROR!!!", "ERROR!!!", JOptionPane.PLAIN_MESSAGE);
+                return;
             }
         }catch(SQLException e){
             System.out.println(e.getMessage());
@@ -287,6 +288,7 @@ public class Antrian extends javax.swing.JFrame {
                 this.tahun = (rs.getString("tanggal"));                
             }else{
                 JOptionPane.showMessageDialog(null, "ERROR!!!", "ERROR!!!", JOptionPane.PLAIN_MESSAGE);
+                return;
             }            
         } catch (Exception e) {
         }
