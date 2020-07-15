@@ -20,7 +20,7 @@ Aplikasi Pendaftaran Pasien RS ini merupakan aplikasi yang bekerja dibidang ruma
 
 2. Daftar Akun Aplikasi
 
-    asdjjkasdnkd
+    dsada
 
 3. Login
 
