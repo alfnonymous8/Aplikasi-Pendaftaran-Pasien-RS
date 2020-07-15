@@ -38,6 +38,7 @@ public class InfoCovid extends javax.swing.JFrame {
         initComponents();
         try{
             getProvinsi();
+            getProvinsi2();
         } catch (Exception ex) {
             System.err.println(ex);
         }
@@ -53,13 +54,17 @@ public class InfoCovid extends javax.swing.JFrame {
     private void initComponents() {
 
         barChartPanel = new javax.swing.JPanel();
+        barChartPanel1 = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setLocation(new java.awt.Point(400, 200));
+        setLocation(new java.awt.Point(200, 100));
         setResizable(false);
 
         barChartPanel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         barChartPanel.setLayout(new java.awt.BorderLayout());
+
+        barChartPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        barChartPanel1.setLayout(new java.awt.BorderLayout());
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -67,7 +72,9 @@ public class InfoCovid extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(barChartPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 788, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(barChartPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(barChartPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 1137, Short.MAX_VALUE))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -75,7 +82,9 @@ public class InfoCovid extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(barChartPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 344, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(87, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addComponent(barChartPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 344, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
@@ -83,19 +92,36 @@ public class InfoCovid extends javax.swing.JFrame {
 
     public void setChart(List x, List y1, List y2){
         CategoryChart chart = new CategoryChartBuilder()
-                .title("10 Provinsi Dengan Kasus COVID-19 Tertinggi")
+                .title("Provinsi Dengan Kasus COVID-19 Tertinggi")
                 .xAxisTitle("Provinsi")
                 .yAxisTitle("Jiwa")
                 .build();
         chart.getStyler().setLegendPosition(Styler.LegendPosition.InsideNE);
         chart.getStyler().setHasAnnotations(true);
-        chart.getStyler().setXAxisLabelRotation(90);
+        chart.getStyler().setXAxisLabelRotation(45);
         chart.addSeries("Positif", x, y1);
         chart.addSeries("Sembuh", x, y2);
         barChartPanel.removeAll();
         XChartPanel<CategoryChart> bchart = new XChartPanel<CategoryChart>(chart);
         barChartPanel.add(bchart);
         barChartPanel.validate();
+    }
+    
+    public void setChart2(List x, List y1, List y2){
+        CategoryChart chart = new CategoryChartBuilder()
+                .title("Provinsi Dengan Kasus COVID-19 Tertinggi")
+                .xAxisTitle("Provinsi")
+                .yAxisTitle("Jiwa")
+                .build();
+        chart.getStyler().setLegendPosition(Styler.LegendPosition.InsideNE);
+        chart.getStyler().setHasAnnotations(true);
+        chart.getStyler().setXAxisLabelRotation(45);
+        chart.addSeries("Positif", x, y1);
+        chart.addSeries("Sembuh", x, y2);
+        barChartPanel1.removeAll();
+        XChartPanel<CategoryChart> bchart = new XChartPanel<CategoryChart>(chart);
+        barChartPanel1.add(bchart);
+        barChartPanel1.validate();
     }
     
     public void getProvinsi() throws IOException{
@@ -115,7 +141,7 @@ public class InfoCovid extends javax.swing.JFrame {
                     String json = IOUtils.toString(entity.getContent());
                     JSONArray array = new JSONArray(json);
                     
-                    for (int i = 0; i < 10; i++){
+                    for (int i = 0; i <= 14; i++){
                         JSONObject object = array.getJSONObject(i);
                         
                         JSONObject record = object.getJSONObject("attributes");
@@ -125,6 +151,42 @@ public class InfoCovid extends javax.swing.JFrame {
                         semb.add((Number) record.get("Kasus_Semb"));
                     }
                     setChart(prov, posi, semb);
+                }
+            } finally{
+                response.close();
+            }
+        } finally{
+            httpClient.close();
+        }
+    }
+    
+    public void getProvinsi2() throws IOException{
+        CloseableHttpClient httpClient = HttpClients.createDefault();
+        List<String> prov2 = new ArrayList<String>(Arrays.asList(new String[] {}));
+        List<Number> posi2 = new ArrayList<Number>(Arrays.asList(new Number[] {}));
+        List<Number> semb2 = new ArrayList<Number>(Arrays.asList(new Number[] {}));
+        
+        try {
+            HttpGet request = new HttpGet("https://api.kawalcorona.com/indonesia/provinsi");
+            request.addHeader("accept", "application/json");
+            CloseableHttpResponse response;
+            response = httpClient.execute(request);
+            HttpEntity entity = response.getEntity();
+            try {
+                if (entity != null){                    
+                    String json2 = IOUtils.toString(entity.getContent());
+                    JSONArray array2 = new JSONArray(json2);
+                    
+                    for (int i = 15; i <= 33; i++){
+                        JSONObject object2 = array2.getJSONObject(i);
+                        
+                        JSONObject record2 = object2.getJSONObject("attributes");
+                        
+                        prov2.add((String) record2.get("Provinsi"));
+                        posi2.add((Number) record2.get("Kasus_Posi"));
+                        semb2.add((Number) record2.get("Kasus_Semb"));
+                    }
+                    setChart2(prov2, posi2, semb2);
                 }
             } finally{
                 response.close();
@@ -178,5 +240,6 @@ public class InfoCovid extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel barChartPanel;
+    private javax.swing.JPanel barChartPanel1;
     // End of variables declaration//GEN-END:variables
 }
