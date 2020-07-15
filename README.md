@@ -49,7 +49,7 @@ Aplikasi Pendaftaran Pasien RS ini merupakan aplikasi yang bekerja dibidang ruma
 
 5. Konsultasi Online
 
-    Coming Soon
+    Coming Soon!
 
 6. Lihat Antrian Saya
 
