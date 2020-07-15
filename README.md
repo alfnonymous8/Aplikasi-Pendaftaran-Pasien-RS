@@ -53,7 +53,7 @@ Aplikasi Pendaftaran Pasien RS ini merupakan aplikasi yang bekerja dibidang ruma
 
 6. Lihat Antrian Saya
 
-    <img src="pic/3.jpg" alt="drawing" style="width:450px;"/>
+    <img src="pic/8.jpg" alt="drawing" style="width:450px;"/>
 
     <p style='text-align: justify;'>
     Berikut merupakan tampilan dari menu Lihat Antrian Saya. Pada halaman ini, pengguna dapat melihat antrian yang dimiliki, selain itu pengguna juga dapat mencetak kembali bukti antrian dengan mengklik tombol cetak apabila bukti antrian sebelumnya hilang atau pengguna terlupa untuk menyimpan bukti antrian. Tombol Tambah pada halaman ini akan mengarahkan pengguna ke halaman Ambil Antrian. Tombol Hapus berfungsi untuk menghapus antrian pengguna yang dibatalkan. Kolom cari digunakan untuk mencari antrian berdasarkan Poli Tujuan.
