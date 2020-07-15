@@ -11,7 +11,7 @@ package aplikasi.rumah.sakit.lekas.sehat;
  */
 public class Utama extends javax.swing.JFrame {
 
-    static String NRM, NAMA, JENIS;
+    static String NRM, NAMA, JENIS, TAHUN;
     /**
      * Creates new form Utama
      */
@@ -99,6 +99,7 @@ public class Utama extends javax.swing.JFrame {
         dispose();
         antrianku.setVisible(true);
         antrianku.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+        antrianku.loadTabelAntrian();
     }//GEN-LAST:event_btnLihatActionPerformed
 
     /**

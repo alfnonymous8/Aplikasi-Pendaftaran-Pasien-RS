@@ -11,11 +11,18 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.time.LocalDate;
+import java.time.Period;
+import java.util.HashMap;
+import java.util.Map;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
+import net.sf.jasperreports.engine.JasperFillManager;
+import net.sf.jasperreports.engine.JasperPrint;
+import net.sf.jasperreports.view.JasperViewer;
 
 
 /**
@@ -23,6 +30,8 @@ import javax.swing.table.DefaultTableModel;
  * @author Alfianda Syahrul
  */
 public class Antrianku extends javax.swing.JFrame {
+    
+    String pol, tgl, no, usiaa;
 
     /**
      * Creates new form Produk
@@ -48,6 +57,7 @@ public class Antrianku extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         txtCari = new javax.swing.JTextField();
         btnCari = new javax.swing.JButton();
+        btnCetak = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setLocation(new java.awt.Point(400, 400));
@@ -95,6 +105,13 @@ public class Antrianku extends javax.swing.JFrame {
             }
         });
 
+        btnCetak.setText("Cetak");
+        btnCetak.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCetakActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -106,7 +123,9 @@ public class Antrianku extends javax.swing.JFrame {
                         .addComponent(jScrollPane1))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(20, 20, 20)
-                        .addComponent(btnTambah)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(btnTambah, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btnCetak, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addGap(18, 18, 18)
                         .addComponent(btnHapus)
                         .addGap(53, 53, 53)
@@ -131,9 +150,11 @@ public class Antrianku extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(1, 1, 1)
                         .addComponent(txtCari, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btnCari)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 12, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btnCari)
+                    .addComponent(btnCetak))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 7, Short.MAX_VALUE)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 213, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
@@ -181,8 +202,8 @@ public class Antrianku extends javax.swing.JFrame {
                 evt.getKeyCode() == java.awt.event.KeyEvent.VK_BACK_SPACE ||
                 evt.getKeyCode() == java.awt.event.KeyEvent.VK_DELETE){
                 txtCari.setEditable(true);
-                String teks = txtCari.getText();
-                loadTabelAntrian(teks);
+//                String teks = txtCari.getText();
+//                loadTabelAntrian(teks);
         } else if(evt.getKeyCode()== KeyEvent.VK_ENTER){
                     String teks = txtCari.getText();
                     loadTabelAntrian(teks);
@@ -196,6 +217,37 @@ public class Antrianku extends javax.swing.JFrame {
         String teks = txtCari.getText();
         loadTabelAntrian(teks);
     }//GEN-LAST:event_btnCariActionPerformed
+
+    private void btnCetakActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCetakActionPerformed
+        // TODO add your handling code here:
+        if(tbAntrian.isRowSelected(tbAntrian.getSelectedRow())==true){
+            selectedID = (int)tbAntrian.getValueAt(tbAntrian.getSelectedRow(), 0);
+            
+            int result = JOptionPane.showConfirmDialog(this,
+                    "Cetak bukti antrian"
+                    + tbAntrian.getValueAt(tbAntrian.getSelectedRow(), 1).toString(),
+                    "Pemberitahuan!",
+                    JOptionPane.YES_NO_OPTION,
+                    JOptionPane.QUESTION_MESSAGE);
+            if (result == JOptionPane.YES_OPTION) {
+                try{
+                    String sql = "SELECT * FROM antrian WHERE id='" + selectedID + "'";
+                    Statement stmt = conn.createStatement();
+                    ResultSet rs = stmt.executeQuery(sql);
+                    if (rs.next()) {
+                        pol = (rs.getString("spesialis"));
+                        no = (rs.getString("no_antri"));
+                        tgl = (rs.getString("tanggal"));
+                    }
+                    usia();
+                }catch(SQLException e){
+                    System.out.println(e.getMessage());
+                }
+            }
+        }else{
+            JOptionPane.showMessageDialog(this, "Tidak ada yang dipilih");
+        }
+    }//GEN-LAST:event_btnCetakActionPerformed
 
     /**
      * @param args the command line arguments
@@ -235,7 +287,7 @@ public class Antrianku extends javax.swing.JFrame {
     
     Connection conn = Koneksi.connectDB();
     public void loadTabelAntrian(){
-        String sql = "SELECT * FROM antrian WHERE nrm LIKE '" + Utama.NRM + "' ORDER BY tanggal";
+        String sql = "SELECT * FROM antrian WHERE nrm='" + Utama.NRM + "' ORDER BY tanggal";
         Object[] kolom = { "ID", "Poli Tujuan", "Tanggal", "Nomor Antrian"};
         DefaultTableModel dataModel = new DefaultTableModel (null, kolom);
         tbAntrian.setModel(dataModel);
@@ -261,7 +313,7 @@ public class Antrianku extends javax.swing.JFrame {
     }
     
     public void loadTabelAntrian(String teks){
-        String sql = "SELECT * FROM antrian WHERE nrm LIKE '" + Utama.NRM + "' && spesialis like '%"+ teks +"%' ORDER BY tanggal";
+        String sql = "SELECT * FROM antrian WHERE nrm='" + Utama.NRM + "' && spesialis like '%"+ teks +"%' ORDER BY tanggal";
         Object[] kolom = { "ID", "Poli Tujuan", "Tanggal", "Nomor Antrian"};
         DefaultTableModel dataModel = new DefaultTableModel (null, kolom);
         tbAntrian.setModel(dataModel);
@@ -285,9 +337,37 @@ public class Antrianku extends javax.swing.JFrame {
             System.out.println(e.getMessage());
         }
     }
+    
+    public void usia() {
+        LocalDate lahir = LocalDate.parse(Utama.TAHUN);
+        LocalDate now = LocalDate.now();
+        Period usia = Period.between(lahir, now);
+        usiaa = String.valueOf(usia.getYears());
+        cetak();
+    }
+    
+    public void cetak(){        
+        Map<String, Object> parameters = new HashMap<String, Object>();
+        parameters.put("NRM", Utama.NRM);
+        parameters.put("NAMA", Utama.NAMA);
+        parameters.put("USIA", usiaa);
+        parameters.put("JENIS", Utama.JENIS);
+        parameters.put("POLI", pol);
+        parameters.put("NOMOR", no);
+        parameters.put("TGL", tgl);
+        try {
+            JasperPrint jp = JasperFillManager.fillReport(getClass()
+                    .getResourceAsStream("../../../../../cetak/cetakNomor.jasper"), 
+                    parameters, conn);
+            JasperViewer.viewReport(jp, false);
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(rootPane, e);
+        }
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCari;
+    private javax.swing.JButton btnCetak;
     private javax.swing.JButton btnHapus;
     private javax.swing.JButton btnTambah;
     private javax.swing.JLabel jLabel1;
