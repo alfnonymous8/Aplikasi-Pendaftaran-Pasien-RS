@@ -232,11 +232,13 @@ public class Antrian extends javax.swing.JFrame {
             pol += "Radiologi";
         } else {
             JOptionPane.showMessageDialog(null, "Anda belum memilih tujuan", "Warning!", JOptionPane.PLAIN_MESSAGE);
+            return;
         }
         
         tgl = tglAntri.getDateStringOrEmptyString();
         if (tgl == "") {
             JOptionPane.showMessageDialog(null, "Anda belum memilih tanggal", "Warning!", JOptionPane.PLAIN_MESSAGE);
+            return;
         } else {
         }
         

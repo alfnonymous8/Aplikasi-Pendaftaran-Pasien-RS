@@ -31,6 +31,7 @@ public class Utama extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         btnAntrian = new javax.swing.JButton();
         btnKonsultasi = new javax.swing.JButton();
+        btnLihat = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setLocation(new java.awt.Point(400, 400));
@@ -48,6 +49,13 @@ public class Utama extends javax.swing.JFrame {
 
         btnKonsultasi.setText("Konsultasi Online");
 
+        btnLihat.setText("Lihat Antrian Saya");
+        btnLihat.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnLihatActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -57,7 +65,8 @@ public class Utama extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(btnAntrian, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnKonsultasi, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(btnKonsultasi, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnLihat, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(110, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -67,9 +76,11 @@ public class Utama extends javax.swing.JFrame {
                 .addComponent(jLabel1)
                 .addGap(57, 57, 57)
                 .addComponent(btnAntrian)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btnKonsultasi)
-                .addContainerGap(58, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(btnLihat)
+                .addContainerGap(31, Short.MAX_VALUE))
         );
 
         pack();
@@ -81,6 +92,14 @@ public class Utama extends javax.swing.JFrame {
         antri.setVisible(true);
         antri.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
     }//GEN-LAST:event_btnAntrianActionPerformed
+    
+    Antrianku antrianku = new Antrianku();
+    private void btnLihatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLihatActionPerformed
+        // TODO add your handling code here:
+        dispose();
+        antrianku.setVisible(true);
+        antrianku.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+    }//GEN-LAST:event_btnLihatActionPerformed
 
     /**
      * @param args the command line arguments
@@ -120,6 +139,7 @@ public class Utama extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAntrian;
     private javax.swing.JButton btnKonsultasi;
+    private javax.swing.JButton btnLihat;
     private javax.swing.JLabel jLabel1;
     // End of variables declaration//GEN-END:variables
 }

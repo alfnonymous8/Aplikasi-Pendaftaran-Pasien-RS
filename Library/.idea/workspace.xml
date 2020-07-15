@@ -2,12 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5d5e1369-9c4d-4ec1-8162-12288e16798a" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/../build/classes/aplikasi/rumah/sakit/lekas/sehat/Antrian$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/../build/classes/aplikasi/rumah/sakit/lekas/sehat/Antrian$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../build/classes/aplikasi/rumah/sakit/lekas/sehat/Antrian$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/../build/classes/aplikasi/rumah/sakit/lekas/sehat/Antrian$2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../build/classes/aplikasi/rumah/sakit/lekas/sehat/Antrian$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/../build/classes/aplikasi/rumah/sakit/lekas/sehat/Antrian$3.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../build/classes/aplikasi/rumah/sakit/lekas/sehat/Antrian.class" beforeDir="false" afterPath="$PROJECT_DIR$/../build/classes/aplikasi/rumah/sakit/lekas/sehat/Antrian.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../nbproject/project.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../nbproject/project.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/aplikasi/rumah/sakit/lekas/sehat/Antrian.java" beforeDir="false" afterPath="$PROJECT_DIR$/../src/aplikasi/rumah/sakit/lekas/sehat/Antrian.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../build/classes/aplikasi/rumah/sakit/lekas/sehat/Utama$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/../build/classes/aplikasi/rumah/sakit/lekas/sehat/Utama$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../build/classes/aplikasi/rumah/sakit/lekas/sehat/Utama$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/../build/classes/aplikasi/rumah/sakit/lekas/sehat/Utama$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../build/classes/aplikasi/rumah/sakit/lekas/sehat/Utama.class" beforeDir="false" afterPath="$PROJECT_DIR$/../build/classes/aplikasi/rumah/sakit/lekas/sehat/Utama.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../build/classes/aplikasi/rumah/sakit/lekas/sehat/Utama.form" beforeDir="false" afterPath="$PROJECT_DIR$/../build/classes/aplikasi/rumah/sakit/lekas/sehat/Utama.form" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../nbproject/private/private.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../nbproject/private/private.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/aplikasi/rumah/sakit/lekas/sehat/Utama.form" beforeDir="false" afterPath="$PROJECT_DIR$/../src/aplikasi/rumah/sakit/lekas/sehat/Utama.form" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/aplikasi/rumah/sakit/lekas/sehat/Utama.java" beforeDir="false" afterPath="$PROJECT_DIR$/../src/aplikasi/rumah/sakit/lekas/sehat/Utama.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -26,6 +27,7 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../../AI/Ludo-Game-in-Python-master/Ludo-Game-in-Python-master" />
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -39,5 +41,11 @@
       <updated>1594416523789</updated>
     </task>
     <servers />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="668" y="174" key="FileChooserDialogImpl" timestamp="1594655013692">
+      <screen x="0" y="0" width="1600" height="900" />
+    </state>
+    <state x="668" y="174" key="FileChooserDialogImpl/0.0.1600.900@0.0.1600.900" timestamp="1594655013692" />
   </component>
 </project>
