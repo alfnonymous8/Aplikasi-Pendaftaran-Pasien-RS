@@ -85,18 +85,17 @@ public class Utama extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-    Antrian antri = new Antrian();
+    
     private void btnAntrianActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAntrianActionPerformed
-        // TODO add your handling code here:
-        dispose();
+        
+        Antrian antri = new Antrian();
         antri.setVisible(true);
         antri.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
     }//GEN-LAST:event_btnAntrianActionPerformed
     
-    Antrianku antrianku = new Antrianku();
     private void btnLihatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLihatActionPerformed
-        // TODO add your handling code here:
-        dispose();
+        
+        Antrianku antrianku = new Antrianku();
         antrianku.setVisible(true);
         antrianku.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
         antrianku.loadTabelAntrian();

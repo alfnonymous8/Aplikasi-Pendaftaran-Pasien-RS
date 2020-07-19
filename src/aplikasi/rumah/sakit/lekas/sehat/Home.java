@@ -98,27 +98,24 @@ public class Home extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
     
-    Daftar daftar = new Daftar();
     private void btnDaftarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDaftarActionPerformed
-        // TODO add your handling code here:
-        dispose();
+        
+        Daftar daftar = new Daftar();
         daftar.setVisible(true);
         daftar.setDefaultCloseOperation(DISPOSE_ON_CLOSE);        
 //    processEvent(new WindowEvent(this, WindowEvent.WINDOW_CLOSING));
     }//GEN-LAST:event_btnDaftarActionPerformed
 
-    Login login = new Login();
     private void btnLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoginActionPerformed
-        // TODO add your handling code here:
-        dispose();
+        
+        Login login = new Login();
         login.setVisible(true);
         login.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
     }//GEN-LAST:event_btnLoginActionPerformed
 
-    InfoCovid info = new InfoCovid();
     private void btnInfoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInfoActionPerformed
-        // TODO add your handling code here:
-        dispose();
+        
+        InfoCovid info = new InfoCovid();
         info.setVisible(true);
         info.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
     }//GEN-LAST:event_btnInfoActionPerformed
