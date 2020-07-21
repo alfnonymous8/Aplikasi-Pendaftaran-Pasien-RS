@@ -17,8 +17,18 @@ public class ActiveUser {
     private String nrm, nama, jenis_kelamin, no_telpon, alamat, email;
     private Date tanggal_lahir;
     
+    private static volatile ActiveUser instance;
+    
     public ActiveUser(){
         
+    }
+    
+    public static ActiveUser getInstance() {
+        if (instance == null) {
+            instance = new ActiveUser();
+        }
+        
+        return instance;
     }
     
     public int getId() {

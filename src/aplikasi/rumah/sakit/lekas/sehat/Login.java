@@ -166,7 +166,8 @@ public class Login extends javax.swing.JFrame {
             }else{
                 String passfield =  hashSHA256(new String(txtPassword.getPassword()));
                 if(passfield.equals(rs.getString("sandi"))){
-                    ActiveUser user = new ActiveUser();
+                    
+                    ActiveUser user = ActiveUser.getInstance();
                     user.setId(rs.getInt("id"));
                     user.setNama(rs.getString("nama"));
                     user.setNrm(rs.getString("nrm"));
@@ -254,7 +255,7 @@ public class Login extends javax.swing.JFrame {
             }
         });
     }
-
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnDisini;
     private javax.swing.JButton btnLogin;
