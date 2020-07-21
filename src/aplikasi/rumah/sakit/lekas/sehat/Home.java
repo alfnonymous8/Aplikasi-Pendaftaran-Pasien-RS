@@ -108,6 +108,7 @@ public class Home extends javax.swing.JFrame {
 
     private void btnLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoginActionPerformed
         
+        dispose();
         Login login = new Login();
         login.setVisible(true);
         login.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
@@ -115,6 +116,7 @@ public class Home extends javax.swing.JFrame {
 
     private void btnInfoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInfoActionPerformed
         
+        dispose();
         InfoCovid info = new InfoCovid();
         info.setVisible(true);
         info.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
