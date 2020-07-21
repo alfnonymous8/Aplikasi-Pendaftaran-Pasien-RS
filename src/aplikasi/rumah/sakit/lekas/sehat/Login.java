@@ -166,6 +166,21 @@ public class Login extends javax.swing.JFrame {
             }else{
                 String passfield =  hashSHA256(new String(txtPassword.getPassword()));
                 if(passfield.equals(rs.getString("sandi"))){
+                    ActiveUser user = new ActiveUser();
+                    user.setId(rs.getInt("id"));
+                    user.setNama(rs.getString("nama"));
+                    user.setNrm(rs.getString("nrm"));
+                    user.setJekel(rs.getString("jenis"));
+                    user.setTelpon(rs.getString("ponsel"));
+                    user.setEmail(rs.getString("email"));
+                    user.setAlamat(rs.getString("alamat"));
+                    user.setLahir(rs.getDate("tanggal"));
+                    
+                    System.out.println("Nama : " + user.getNama());
+                    System.out.println("Alamat : " + user.getAlamat());
+                    System.out.println("Tanggal lahir : " + user.getLahir());
+                    
+                    
                     new Utama().setVisible(true);
                     this.dispose();
                 }else{
@@ -176,7 +191,7 @@ public class Login extends javax.swing.JFrame {
                 Utama.JENIS = (rs.getString("jenis"));
                 Utama.TAHUN = (rs.getString("tanggal"));
             }
-        }catch(SQLException e){
+        } catch(SQLException e){
             System.out.println(e.getMessage());
         }
     }//GEN-LAST:event_btnLoginActionPerformed
