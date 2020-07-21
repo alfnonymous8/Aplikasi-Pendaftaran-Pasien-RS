@@ -48,6 +48,11 @@ public class Utama extends javax.swing.JFrame {
         });
 
         btnKonsultasi.setText("Konsultasi Online");
+        btnKonsultasi.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnKonsultasiActionPerformed(evt);
+            }
+        });
 
         btnLihat.setText("Lihat Antrian Saya");
         btnLihat.addActionListener(new java.awt.event.ActionListener() {
@@ -100,6 +105,13 @@ public class Utama extends javax.swing.JFrame {
         antrianku.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
         antrianku.loadTabelAntrian();
     }//GEN-LAST:event_btnLihatActionPerformed
+
+    private void btnKonsultasiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnKonsultasiActionPerformed
+        
+        Konsultasi konsultasi = new Konsultasi();
+        konsultasi.setVisible(true);
+        konsultasi.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+    }//GEN-LAST:event_btnKonsultasiActionPerformed
 
     /**
      * @param args the command line arguments

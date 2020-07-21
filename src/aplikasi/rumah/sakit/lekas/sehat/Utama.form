@@ -76,6 +76,9 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="Konsultasi Online"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnKonsultasiActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="btnLihat">
       <Properties>
