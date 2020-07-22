@@ -6,9 +6,9 @@
 package aplikasi.rumah.sakit.lekas.sehat;
 
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Statement;
 import javax.swing.JOptionPane;
 
 /**
@@ -141,31 +141,28 @@ public class Login extends javax.swing.JFrame {
     Connection conn = Koneksi.connectDB();
     private void btnLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoginActionPerformed
         try{
-            String sql = "SELECT * FROM data_pengguna WHERE email='" + txtEmail.getText() + "'";
-            Statement stmt = conn.createStatement();
-            ResultSet rs = stmt.executeQuery(sql);
+            HashSHA256 sha256 = new HashSHA256();
+            String passfield =  sha256.hashSHA256(new String(txtPassword.getPassword()));
+            PreparedStatement stmt = conn.prepareStatement("SELECT * FROM data_pengguna WHERE email=? AND sandi=?");
+            stmt.setString(1, txtEmail.getText());
+            stmt.setString(2, passfield);
+            ResultSet rs = stmt.executeQuery();
+            
             if (rs.next() == false) {
-                JOptionPane.showMessageDialog(null, "Email salah!!", "Warning!", JOptionPane.PLAIN_MESSAGE);
-            }else{
-                HashSHA256 sha256 = new HashSHA256();
-                String passfield =  sha256.hashSHA256(new String(txtPassword.getPassword()));
-                if(passfield.equals(rs.getString("sandi"))){
-                    
-                    ActiveUser user = ActiveUser.getInstance();
-                    user.setId(rs.getInt("id"));
-                    user.setNama(rs.getString("nama"));
-                    user.setNrm(rs.getString("nrm"));
-                    user.setJekel(rs.getString("jenis"));
-                    user.setTelpon(rs.getString("ponsel"));
-                    user.setEmail(rs.getString("email"));
-                    user.setAlamat(rs.getString("alamat"));
-                    user.setLahir(rs.getDate("tanggal"));
-                    
-                    new Utama().setVisible(true);
-                    this.dispose();
-                }else{
-                    JOptionPane.showMessageDialog(null, "Password salah!!", "Warning!", JOptionPane.PLAIN_MESSAGE);
-                }
+                JOptionPane.showMessageDialog(null, "Email atau password salah!!", "Warning!", JOptionPane.PLAIN_MESSAGE);
+            } else { 
+                ActiveUser user = ActiveUser.getInstance();
+                user.setId(rs.getInt("id"));
+                user.setNama(rs.getString("nama"));
+                user.setNrm(rs.getString("nrm"));
+                user.setJekel(rs.getString("jenis"));
+                user.setTelpon(rs.getString("ponsel"));
+                user.setEmail(rs.getString("email"));
+                user.setAlamat(rs.getString("alamat"));
+                user.setLahir(rs.getDate("tanggal"));
+
+                new Utama().setVisible(true);
+                this.dispose();
                 Utama.NRM = (rs.getString("nrm"));
                 Utama.NAMA = (rs.getString("nama"));
                 Utama.JENIS = (rs.getString("jenis"));

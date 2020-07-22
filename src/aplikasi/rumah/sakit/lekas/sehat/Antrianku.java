@@ -8,6 +8,7 @@ package aplikasi.rumah.sakit.lekas.sehat;
 import java.awt.GridLayout;
 import java.awt.event.KeyEvent;
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -182,9 +183,9 @@ public class Antrianku extends javax.swing.JFrame {
                     JOptionPane.QUESTION_MESSAGE);
             if (result == JOptionPane.YES_OPTION) {
                 try{
-                    Statement stmt = conn.createStatement();
-                    stmt.executeUpdate("DELETE FROM antrian WHERE id='"
-                    + selectedID + "'");
+                    PreparedStatement stmt = conn.prepareStatement("DELETE FROM antrian WHERE id=?");
+                    stmt.setInt(1, selectedID);
+                    stmt.executeUpdate();
                     loadTabelAntrian();
                 }catch(SQLException e){
                     System.out.println(e.getMessage());
@@ -231,9 +232,9 @@ public class Antrianku extends javax.swing.JFrame {
                     JOptionPane.QUESTION_MESSAGE);
             if (result == JOptionPane.YES_OPTION) {
                 try{
-                    String sql = "SELECT * FROM antrian WHERE id='" + selectedID + "'";
-                    Statement stmt = conn.createStatement();
-                    ResultSet rs = stmt.executeQuery(sql);
+                    PreparedStatement stmt = conn.prepareStatement("SELECT * FROM antrian WHERE id=?");
+                    stmt.setInt(1, selectedID);
+                    ResultSet rs = stmt.executeQuery();
                     if (rs.next()) {
                         pol = (rs.getString("spesialis"));
                         no = (rs.getString("no_antri"));
@@ -287,15 +288,16 @@ public class Antrianku extends javax.swing.JFrame {
     
     Connection conn = Koneksi.connectDB();
     public void loadTabelAntrian(){
-        String sql = "SELECT * FROM antrian WHERE nrm='" + Utama.NRM + "' ORDER BY tanggal";
+        String sql = "SELECT * FROM antrian WHERE nrm=? ORDER BY tanggal";
         Object[] kolom = { "ID", "Poli Tujuan", "Tanggal", "Nomor Antrian"};
         DefaultTableModel dataModel = new DefaultTableModel (null, kolom);
         tbAntrian.setModel(dataModel);
         tbAntrian.getColumnModel().getColumn(0).setMaxWidth(30);
         
         try{
-            Statement stmt = conn.createStatement();
-            ResultSet rs = stmt.executeQuery(sql);
+            PreparedStatement stmt = conn.prepareStatement(sql);
+            stmt.setString(1, Utama.NRM);
+            ResultSet rs = stmt.executeQuery();
             
             while(rs.next()){
                 int id = rs.getInt("id");
@@ -313,15 +315,17 @@ public class Antrianku extends javax.swing.JFrame {
     }
     
     public void loadTabelAntrian(String teks){
-        String sql = "SELECT * FROM antrian WHERE nrm='" + Utama.NRM + "' && spesialis like '%"+ teks +"%' ORDER BY tanggal";
+        String sql = "SELECT * FROM antrian WHERE nrm=? AND spesialis like ? ORDER BY tanggal";
         Object[] kolom = { "ID", "Poli Tujuan", "Tanggal", "Nomor Antrian"};
         DefaultTableModel dataModel = new DefaultTableModel (null, kolom);
         tbAntrian.setModel(dataModel);
         tbAntrian.getColumnModel().getColumn(0).setMaxWidth(30);
         
         try{
-            Statement stmt = conn.createStatement();
-            ResultSet rs = stmt.executeQuery(sql);
+            PreparedStatement stmt = conn.prepareStatement(sql);
+            stmt.setString(1, Utama.NRM);
+            stmt.setString(2, teks);
+            ResultSet rs = stmt.executeQuery();
             
             while(rs.next()){
                 int id = rs.getInt("id");

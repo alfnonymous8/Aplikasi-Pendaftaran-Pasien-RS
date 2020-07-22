@@ -6,6 +6,7 @@
 package aplikasi.rumah.sakit.lekas.sehat;
 
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -340,9 +341,9 @@ public class Daftar extends javax.swing.JFrame {
         String nrm = txtNRM.getText();
         
         try{
-            String sql = "SELECT * FROM nrm WHERE id_nrm ='" + nrm + "'";
-            Statement stmt = conn.createStatement();
-            ResultSet rs = stmt.executeQuery(sql);
+            PreparedStatement stmt = conn.prepareStatement("SELECT * FROM nrm WHERE id_nrm=?");
+            stmt.setString(1, nrm);
+            ResultSet rs = stmt.executeQuery();
             if (rs.next() == false) {
                 JOptionPane.showMessageDialog(null, "NRM tidak terdaftar!!\nSilahkan lakukan pendaftaran awal pada RS Lekas Sembuh.", "Warning!", JOptionPane.PLAIN_MESSAGE);
             }else {
@@ -357,9 +358,9 @@ public class Daftar extends javax.swing.JFrame {
         String nrm = txtNRM.getText();
         
         try {
-            String sqll = "SELECT * FROM data_pengguna WHERE nrm ='" + nrm + "'";
-            Statement stmt = conn.createStatement();
-            ResultSet rs = stmt.executeQuery(sqll);
+            PreparedStatement stmt = conn.prepareStatement("SELECT * FROM data_pengguna WHERE nrm=?");
+            stmt.setString(1, nrm);
+            ResultSet rs = stmt.executeQuery();
             if (rs.next() == false) {
                 cekEmail();
             } else {
@@ -380,9 +381,9 @@ public class Daftar extends javax.swing.JFrame {
     public void cekEmail(){
         String email = txtEmail.getText();
         try{
-            String sql = "SELECT * FROM data_pengguna WHERE email ='" + email + "'";
-            Statement stmt = conn.createStatement();
-            ResultSet rs = stmt.executeQuery(sql);
+            PreparedStatement stmt = conn.prepareStatement("SELECT * FROM data_pengguna WHERE email=?");
+            stmt.setString(1, email);
+            ResultSet rs = stmt.executeQuery();
             if (rs.next() == false) {
                 cekPass();
             }else{
@@ -417,20 +418,20 @@ public class Daftar extends javax.swing.JFrame {
                     jk += "Perempuan";
                 }
                 
-                Statement stmt = conn.createStatement();
-                stmt.executeUpdate("INSERT INTO data_pengguna(nrm,nama,jenis,tanggal,ponsel,alamat,email,sandi)" 
-                        + " VALUES('" + txtNRM.getText() +
-                        "', '" + txtNama.getText()+
-                        "', '" + jk +
-                        "', '" + tgl +
-                        "', '" + txtPonsel.getText()+
-                        "', '" + txtAlamat.getText()+
-                        "', '" + txtEmail.getText()+
-                        "', '" + txtPassword.getText()+
-                        "')");
+                HashSHA256 sha256 = new HashSHA256();
+                String hashedPass = sha256.hashSHA256(txtPassword.getText());
+                PreparedStatement stmt = conn.prepareStatement("INSERT INTO data_pengguna(nrm,nama,jenis,tanggal,ponsel,alamat,email,sandi)"
+                        + " VALUES(?,?,?,?,?,?,?,?)");
+                stmt.setString(1, txtNRM.getText());
+                stmt.setString(2, txtNama.getText());
+                stmt.setString(3, jk);
+                stmt.setString(4, tgl);
+                stmt.setString(5, txtPonsel.getText());
+                stmt.setString(6, txtAlamat.getText());
+                stmt.setString(7, txtEmail.getText());
+                stmt.setString(8, hashedPass);
 
-                stmt.executeUpdate("UPDATE data_pengguna SET sandi=SHA2('" + txtPassword.getText() + "',256) WHERE email='" + txtEmail.getText() + "'");
-//                JOptionPane.showMessageDialog(null, "Selamat!! pendaftaran berhasil.", "Announcement", JOptionPane.PLAIN_MESSAGE);
+                stmt.executeUpdate();
                 
                 int selesai = JOptionPane.showConfirmDialog(null, "Selamat!! pendaftaran berhasil.", "Announcement", JOptionPane.OK_CANCEL_OPTION, JOptionPane.PLAIN_MESSAGE);
                 if (selesai == JOptionPane.OK_OPTION){

@@ -6,16 +6,11 @@
 package aplikasi.rumah.sakit.lekas.sehat;
 
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Statement;
-import java.text.NumberFormat;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.Period;
-import java.util.Calendar;
-import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 import javax.swing.JOptionPane;
@@ -204,11 +199,7 @@ public class Antrian extends javax.swing.JFrame {
     }//GEN-LAST:event_btnAmbilActionPerformed
 
     private void btnBatalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBatalActionPerformed
-//         TODO add your handling code here:
-        Utama utama = new Utama();
         dispose();
-        utama.setVisible(true);
-        utama.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
     }//GEN-LAST:event_btnBatalActionPerformed
 
     public void ambil(){
@@ -248,9 +239,10 @@ public class Antrian extends javax.swing.JFrame {
     Connection conn = Koneksi.connectDB();
     public void ambilNo(){
         try{
-            String sql = "SELECT MAX(no_antri) FROM antrian WHERE spesialis='" + pol + "' && tanggal like '%" + tgl + "%'";
-            Statement stmt = conn.createStatement();
-            ResultSet rs = stmt.executeQuery(sql);
+            PreparedStatement stmt = conn.prepareStatement("SELECT MAX(no_antri) FROM antrian WHERE spesialis=? AND tanggal like ?");
+            stmt.setString(1, pol);
+            stmt.setString(2, "%" + tgl + "%");
+            ResultSet rs = stmt.executeQuery();
             if (rs.next() == true) {
                 noAntri = (rs.getInt("MAX(no_antri)")) + 1;
                 input();
@@ -265,13 +257,14 @@ public class Antrian extends javax.swing.JFrame {
     
     public void input(){
         try{
-            Statement stmt = conn.createStatement();
-            stmt.executeUpdate("INSERT INTO antrian(spesialis,tanggal,no_antri,nrm)" 
-            + " VALUES('" + pol +
-            "', '" + tgl +
-            "', '" + noAntri +
-            "', '" + Utama.NRM +        
-            "')");
+            PreparedStatement stmt = conn.prepareStatement("INSERT INTO antrian(spesialis,tanggal,no_antri,nrm)"
+                    + " VALUES(?,?,?,?)");
+            stmt.setString(1, pol);
+            stmt.setString(2, tgl);
+            stmt.setInt(3, noAntri);
+            stmt.setString(4, Utama.NRM);
+            
+            stmt.executeUpdate();
  
             usia();
             cetak();            
@@ -282,8 +275,9 @@ public class Antrian extends javax.swing.JFrame {
     
     public void usia() {
         try {
-            Statement stmt = conn.createStatement();
-            ResultSet rs = stmt.executeQuery("SELECT tanggal FROM data_pengguna WHERE nrm like '%" + Utama.NRM + "%'");
+            PreparedStatement stmt = conn.prepareStatement("SELECT tanggal FROM data_pengguna WHERE nrm=?");
+            stmt.setString(1, Utama.NRM);
+            ResultSet rs = stmt.executeQuery();
             if (rs.next() == true) {
                 this.tahun = (rs.getString("tanggal"));                
             }else{
