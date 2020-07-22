@@ -100,6 +100,7 @@ public class Home extends javax.swing.JFrame {
     
     private void btnDaftarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDaftarActionPerformed
         
+        dispose();
         Daftar daftar = new Daftar();
         daftar.setVisible(true);
         daftar.setDefaultCloseOperation(DISPOSE_ON_CLOSE);        
@@ -116,7 +117,6 @@ public class Home extends javax.swing.JFrame {
 
     private void btnInfoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInfoActionPerformed
         
-        dispose();
         InfoCovid info = new InfoCovid();
         info.setVisible(true);
         info.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
