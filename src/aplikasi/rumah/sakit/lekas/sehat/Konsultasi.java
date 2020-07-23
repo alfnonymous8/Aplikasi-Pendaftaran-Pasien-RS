@@ -42,6 +42,7 @@ public class Konsultasi extends javax.swing.JFrame {
         btnBatal = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setLocation(new java.awt.Point(500, 300));
 
         jLabel1.setFont(new java.awt.Font("Ubuntu", 1, 24)); // NOI18N
         jLabel1.setText("Konsultasi Online");
