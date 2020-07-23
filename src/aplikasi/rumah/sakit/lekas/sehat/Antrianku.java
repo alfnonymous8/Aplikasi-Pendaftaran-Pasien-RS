@@ -33,6 +33,7 @@ import net.sf.jasperreports.view.JasperViewer;
 public class Antrianku extends javax.swing.JFrame {
     
     String pol, tgl, no, usiaa;
+    ActiveUser user = ActiveUser.getInstance();
 
     /**
      * Creates new form Produk
@@ -296,7 +297,7 @@ public class Antrianku extends javax.swing.JFrame {
         
         try{
             PreparedStatement stmt = conn.prepareStatement(sql);
-            stmt.setString(1, Utama.NRM);
+            stmt.setString(1, user.getNrm());
             ResultSet rs = stmt.executeQuery();
             
             while(rs.next()){
@@ -323,7 +324,7 @@ public class Antrianku extends javax.swing.JFrame {
         
         try{
             PreparedStatement stmt = conn.prepareStatement(sql);
-            stmt.setString(1, Utama.NRM);
+            stmt.setString(1, user.getNrm());
             stmt.setString(2, teks);
             ResultSet rs = stmt.executeQuery();
             
@@ -343,7 +344,7 @@ public class Antrianku extends javax.swing.JFrame {
     }
     
     public void usia() {
-        LocalDate lahir = LocalDate.parse(Utama.TAHUN);
+        LocalDate lahir = LocalDate.parse(user.getLahir().toString());
         LocalDate now = LocalDate.now();
         Period usia = Period.between(lahir, now);
         usiaa = String.valueOf(usia.getYears());
@@ -352,10 +353,10 @@ public class Antrianku extends javax.swing.JFrame {
     
     public void cetak(){        
         Map<String, Object> parameters = new HashMap<String, Object>();
-        parameters.put("NRM", Utama.NRM);
-        parameters.put("NAMA", Utama.NAMA);
+        parameters.put("NRM", user.getNrm());
+        parameters.put("NAMA", user.getNama());
         parameters.put("USIA", usiaa);
-        parameters.put("JENIS", Utama.JENIS);
+        parameters.put("JENIS", user.getJekel());
         parameters.put("POLI", pol);
         parameters.put("NOMOR", no);
         parameters.put("TGL", tgl);

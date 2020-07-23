@@ -28,6 +28,7 @@ public class Antrian extends javax.swing.JFrame {
     int noAntri = 0;
     String tahun = "";
     String usiaa = "";
+    ActiveUser user = ActiveUser.getInstance();
 
     /**
      * Creates new form Antrian
@@ -203,7 +204,7 @@ public class Antrian extends javax.swing.JFrame {
     }//GEN-LAST:event_btnBatalActionPerformed
 
     public void ambil(){
-        String NRM = Utama.NRM;
+        String NRM = user.getNrm();
         
         if (rdBidan.isSelected()) {
             pol += "Poli Kebidanan";
@@ -262,7 +263,7 @@ public class Antrian extends javax.swing.JFrame {
             stmt.setString(1, pol);
             stmt.setString(2, tgl);
             stmt.setInt(3, noAntri);
-            stmt.setString(4, Utama.NRM);
+            stmt.setString(4, user.getNrm());
             
             stmt.executeUpdate();
  
@@ -276,7 +277,7 @@ public class Antrian extends javax.swing.JFrame {
     public void usia() {
         try {
             PreparedStatement stmt = conn.prepareStatement("SELECT tanggal FROM data_pengguna WHERE nrm=?");
-            stmt.setString(1, Utama.NRM);
+            stmt.setString(1, user.getNrm());
             ResultSet rs = stmt.executeQuery();
             if (rs.next() == true) {
                 this.tahun = (rs.getString("tanggal"));                
@@ -296,10 +297,10 @@ public class Antrian extends javax.swing.JFrame {
         String no = String.valueOf(noAntri);
         
         Map<String, Object> parameters = new HashMap<String, Object>();
-        parameters.put("NRM", Utama.NRM);
-        parameters.put("NAMA", Utama.NAMA);
+        parameters.put("NRM", user.getNrm());
+        parameters.put("NAMA", user.getNama());
         parameters.put("USIA", usiaa);
-        parameters.put("JENIS", Utama.JENIS);
+        parameters.put("JENIS", user.getJekel());
         parameters.put("POLI", pol);
         parameters.put("NOMOR", no);
         parameters.put("TGL", tgl);
