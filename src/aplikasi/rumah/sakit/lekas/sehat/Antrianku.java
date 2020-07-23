@@ -7,6 +7,7 @@ package aplikasi.rumah.sakit.lekas.sehat;
 
 import java.awt.GridLayout;
 import java.awt.event.KeyEvent;
+import java.io.InputStream;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -21,8 +22,12 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
+import net.sf.jasperreports.engine.JasperCompileManager;
 import net.sf.jasperreports.engine.JasperFillManager;
 import net.sf.jasperreports.engine.JasperPrint;
+import net.sf.jasperreports.engine.JasperReport;
+import net.sf.jasperreports.engine.design.JasperDesign;
+import net.sf.jasperreports.engine.xml.JRXmlLoader;
 import net.sf.jasperreports.view.JasperViewer;
 
 
@@ -361,9 +366,13 @@ public class Antrianku extends javax.swing.JFrame {
         parameters.put("NOMOR", no);
         parameters.put("TGL", tgl);
         try {
-            JasperPrint jp = JasperFillManager.fillReport(getClass()
-                    .getResourceAsStream("../../../../../cetak/cetakNomor.jasper"), 
-                    parameters, conn);
+            InputStream file = getClass().getResourceAsStream("/cetak/cetakNomor.jrxml");
+            JasperDesign jasperDesign = JRXmlLoader.load(file);
+            JasperReport jasperReport = JasperCompileManager.compileReport(jasperDesign);
+//            JasperPrint jp = JasperFillManager.fillReport(getClass()
+//                    .getResourceAsStream("../../../../../cetak/cetakNomor.jasper"), 
+//                    parameters, conn);
+            JasperPrint jp = JasperFillManager.fillReport(jasperReport, parameters, conn);
             JasperViewer.viewReport(jp, false);
         } catch (Exception e) {
             JOptionPane.showMessageDialog(rootPane, e);

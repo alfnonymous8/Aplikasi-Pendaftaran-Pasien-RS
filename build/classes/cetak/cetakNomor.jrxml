@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Created with Jaspersoft Studio version 6.8.0.final using JasperReports Library version 6.8.0-2ed8dfabb690ff337a5797129f2cd92902b0c87b  -->
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Bukti Antrian" language="groovy" pageWidth="246" pageHeight="425" whenNoDataType="NoDataSection" columnWidth="206" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" isIgnorePagination="true" uuid="8caeee94-fd62-44d2-9732-2e17bfe5a4af">
 	<property name="ireport.zoom" value="1.0"/>
 	<property name="ireport.x" value="0"/>
@@ -26,7 +25,7 @@
 		<band height="28" splitType="Stretch">
 			<staticText>
 				<reportElement x="0" y="0" width="206" height="20" uuid="e83adc14-2b2b-4c97-b667-c44f943389e5"/>
-				<textElement textAlignment="Center" verticalAlignment="Top">
+				<textElement>
 					<font size="14" isBold="true"/>
 				</textElement>
 				<text><![CDATA[Bukti Antrian]]></text>
@@ -44,7 +43,6 @@
 					<bottomPen lineWidth="0.0" lineStyle="Dotted"/>
 					<rightPen lineStyle="Dashed"/>
 				</box>
-				<textElement textAlignment="Center" verticalAlignment="Middle"/>
 				<text><![CDATA[Jl. Baru Dibuka No. 1 RT:01/01 Kota Baru 021231092301293]]></text>
 			</staticText>
 		</band>
@@ -75,19 +73,17 @@
 		<band height="228" splitType="Stretch">
 			<staticText>
 				<reportElement x="0" y="197" width="206" height="28" uuid="0bf06e31-b81c-4e23-89f9-2a1df5f9a63c"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
+				<textElement>
 					<font size="9"/>
 				</textElement>
 				<text><![CDATA[Bawa bukti ini dalam bentuk tangkapan layar saat datang ke dokter]]></text>
 			</staticText>
 			<textField>
 				<reportElement x="106" y="117" width="100" height="20" uuid="a388b5a5-15de-4e97-ac26-4868f00920b3"/>
-				<textElement textAlignment="Right"/>
 				<textFieldExpression><![CDATA[$P{POLI}]]></textFieldExpression>
 			</textField>
 			<textField>
 				<reportElement x="106" y="157" width="100" height="20" uuid="7f185441-a19e-42ac-adf9-9d43c52955a8"/>
-				<textElement textAlignment="Right"/>
 				<textFieldExpression><![CDATA[$P{NOMOR}]]></textFieldExpression>
 			</textField>
 			<staticText>
@@ -108,7 +104,6 @@
 			</textField>
 			<textField>
 				<reportElement x="106" y="137" width="100" height="20" uuid="ca6d0384-4052-4e64-bb71-f8d547c485a7"/>
-				<textElement textAlignment="Right"/>
 				<textFieldExpression><![CDATA[$P{TGL}]]></textFieldExpression>
 			</textField>
 			<staticText>
@@ -121,7 +116,6 @@
 			</staticText>
 			<textField>
 				<reportElement x="106" y="13" width="100" height="20" uuid="16a140b5-76f0-4ab5-b4db-96fa745c309d"/>
-				<textElement textAlignment="Right"/>
 				<textFieldExpression><![CDATA[$P{NRM}]]></textFieldExpression>
 			</textField>
 			<staticText>
@@ -134,7 +128,6 @@
 			</staticText>
 			<textField>
 				<reportElement x="106" y="33" width="100" height="20" uuid="1419b9f7-7326-4d88-8303-f469ca33fadd"/>
-				<textElement textAlignment="Right"/>
 				<textFieldExpression><![CDATA[$P{NAMA}]]></textFieldExpression>
 			</textField>
 			<staticText>
@@ -143,7 +136,6 @@
 			</staticText>
 			<textField>
 				<reportElement x="106" y="53" width="100" height="20" uuid="9ae99782-af4a-4cb6-93cf-dd5a447feaad"/>
-				<textElement textAlignment="Right"/>
 				<textFieldExpression><![CDATA[$P{USIA}]]></textFieldExpression>
 			</textField>
 			<textField>
@@ -164,7 +156,6 @@
 			</staticText>
 			<textField>
 				<reportElement x="106" y="73" width="100" height="20" uuid="b58ca03f-d0fa-4d67-b6ac-8a556fd111ba"/>
-				<textElement textAlignment="Right"/>
 				<textFieldExpression><![CDATA[$P{JENIS}]]></textFieldExpression>
 			</textField>
 		</band>

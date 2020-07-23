@@ -22,6 +22,9 @@ SET time_zone = "+00:00";
 -- Database: `bpjs`
 --
 
+CREATE DATABASE IF NOT EXISTS `bpjs`;
+USE `bpjs`;
+
 -- --------------------------------------------------------
 
 --
