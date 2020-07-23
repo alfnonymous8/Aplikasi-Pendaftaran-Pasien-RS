@@ -254,27 +254,31 @@ public class Profil extends javax.swing.JFrame {
     Connection conn = Koneksi.connectDB();
     private void btnSimpanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSimpanActionPerformed
         
-        int result = JOptionPane.showConfirmDialog(null, "Apakah Anda yakin dengan perubahan ini?", "Peringatan!", JOptionPane.OK_CANCEL_OPTION, JOptionPane.PLAIN_MESSAGE);
-        
-        if (result == JOptionPane.OK_OPTION) {
-            try{
-                PreparedStatement stmt = conn.prepareStatement("UPDATE data_pengguna SET email=?, ponsel=? WHERE id=?");
-                stmt.setString(1, txtEmail.getText());
-                stmt.setString(2, txtTelpon.getText());
-                stmt.setInt(3, ActiveUser.getInstance().getId());
-                stmt.executeUpdate();
-                
-                int selesai = JOptionPane.showConfirmDialog(null, "Perubahan berhasil disimpan!", "Pemberitahuan", JOptionPane.DEFAULT_OPTION, JOptionPane.PLAIN_MESSAGE);
-                if(selesai == JOptionPane.OK_OPTION) {
-                    btnEdit.setEnabled(true);
-                    btnSimpan.setEnabled(false);
-                    btnTutup.setText("Tutup");
-                    txtEmail.setEnabled(false);
-                    txtTelpon.setEnabled(false);
+        if(!txtEmail.getText().equals("") && !txtTelpon.getText().equals("")) {
+            int result = JOptionPane.showConfirmDialog(null, "Apakah Anda yakin dengan perubahan ini?", "Peringatan!", JOptionPane.OK_CANCEL_OPTION, JOptionPane.PLAIN_MESSAGE);
+
+            if (result == JOptionPane.OK_OPTION) {
+                try{
+                    PreparedStatement stmt = conn.prepareStatement("UPDATE data_pengguna SET email=?, ponsel=? WHERE id=?");
+                    stmt.setString(1, txtEmail.getText());
+                    stmt.setString(2, txtTelpon.getText());
+                    stmt.setInt(3, ActiveUser.getInstance().getId());
+                    stmt.executeUpdate();
+
+                    int selesai = JOptionPane.showConfirmDialog(null, "Perubahan berhasil disimpan!", "Pemberitahuan", JOptionPane.DEFAULT_OPTION, JOptionPane.PLAIN_MESSAGE);
+                    if(selesai == JOptionPane.OK_OPTION) {
+                        btnEdit.setEnabled(true);
+                        btnSimpan.setEnabled(false);
+                        btnTutup.setText("Tutup");
+                        txtEmail.setEnabled(false);
+                        txtTelpon.setEnabled(false);
+                    }
+                } catch (SQLException e) {
+                    System.out.println(e.getMessage());
                 }
-            } catch (SQLException e) {
-                System.out.println(e.getMessage());
             }
+        } else {
+            JOptionPane.showMessageDialog(null, "Email dan telpon tidak boleh dikosongkan!", "Peringatan!", JOptionPane.PLAIN_MESSAGE);
         }
     }//GEN-LAST:event_btnSimpanActionPerformed
 

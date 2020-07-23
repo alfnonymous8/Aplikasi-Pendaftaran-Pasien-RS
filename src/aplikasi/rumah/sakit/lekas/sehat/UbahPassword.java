@@ -134,23 +134,27 @@ public class UbahPassword extends javax.swing.JFrame {
     }//GEN-LAST:event_btnBatalActionPerformed
 
     private void btnSimpanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSimpanActionPerformed
-        int result = JOptionPane.showConfirmDialog(null, "Apakah Anda yakin?", "Warning!", JOptionPane.OK_CANCEL_OPTION, JOptionPane.PLAIN_MESSAGE);
-        if(result == JOptionPane.OK_OPTION) {
-            if (checkOldPass() == true) {
-                if(txtNewPass.getText().equals(txtNewPassConf.getText())){
-                    if (simpanPass() == true) {
-                        JOptionPane.showMessageDialog(null, "Perubahan password berhasil disimpan!", "Pemberitahuan", JOptionPane.PLAIN_MESSAGE);
-                        this.dispose();
+        if(txtNewPass.getText().length() >= 6) {
+            int result = JOptionPane.showConfirmDialog(null, "Apakah Anda yakin?", "Warning!", JOptionPane.OK_CANCEL_OPTION, JOptionPane.PLAIN_MESSAGE);
+            if(result == JOptionPane.OK_OPTION) {
+                if (checkOldPass() == true) {
+                    if(txtNewPass.getText().equals(txtNewPassConf.getText())){
+                        if (simpanPass() == true) {
+                            JOptionPane.showMessageDialog(null, "Perubahan password berhasil disimpan!", "Pemberitahuan", JOptionPane.PLAIN_MESSAGE);
+                            this.dispose();
+                        } else {
+                            JOptionPane.showMessageDialog(null, "Perubahan password gagal disimpan, silakan coba lagi.", "Peringatan!", JOptionPane.PLAIN_MESSAGE);
+                        }
                     } else {
-                        JOptionPane.showMessageDialog(null, "Perubahan password gagal disimpan, silakan coba lagi.", "Peringatan!", JOptionPane.PLAIN_MESSAGE);
+                        JOptionPane.showMessageDialog(null, "Password tidak sesuai!\nPeriksa kembali password baru Anda!", "Peringatan!", JOptionPane.PLAIN_MESSAGE);
                     }
+
                 } else {
-                    JOptionPane.showMessageDialog(null, "Password tidak sesuai!\nPeriksa kembali password baru Anda!", "Peringatan!", JOptionPane.PLAIN_MESSAGE);
+                    JOptionPane.showMessageDialog(null, "Password lama yang Anda masukkan salah!", "Peringatan!", JOptionPane.PLAIN_MESSAGE);
                 }
-                
-            } else {
-                JOptionPane.showMessageDialog(null, "Password lama yang Anda masukkan salah!", "Peringatan!", JOptionPane.PLAIN_MESSAGE);
             }
+        } else {
+            JOptionPane.showMessageDialog(null, "Password baru harus terdiri dari 6 karakter atau lebih", "Peringatan!", JOptionPane.PLAIN_MESSAGE);
         }
     }//GEN-LAST:event_btnSimpanActionPerformed
 

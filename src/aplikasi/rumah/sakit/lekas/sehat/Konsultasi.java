@@ -123,9 +123,17 @@ public class Konsultasi extends javax.swing.JFrame {
     }//GEN-LAST:event_btnBatalActionPerformed
 
     private void btnSubmitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSubmitActionPerformed
-        int result = JOptionPane.showConfirmDialog(null, "Apakah Anda yakin?", "Warning!", JOptionPane.OK_CANCEL_OPTION, JOptionPane.PLAIN_MESSAGE);
-        if(result == JOptionPane.OK_OPTION) {
-            submitKonsul();
+        if(!txtKeluhan.getText().equals("")){
+            if(txtKeluhan.getText().length() > 20) {
+                int result = JOptionPane.showConfirmDialog(null, "Apakah Anda yakin?", "Warning!", JOptionPane.OK_CANCEL_OPTION, JOptionPane.PLAIN_MESSAGE);
+                if(result == JOptionPane.OK_OPTION) {
+                    submitKonsul();
+                }
+            } else {
+                JOptionPane.showMessageDialog(null, "Keluhan Anda terlalu singkat!\nHarap berikan keluhan yang jelas.", "Peringatan!", JOptionPane.PLAIN_MESSAGE);
+            }
+        } else {
+            JOptionPane.showMessageDialog(null, "Harap mengisi keluhan Anda pada field yang tersedia!", "Peringatan!", JOptionPane.PLAIN_MESSAGE);
         }
     }//GEN-LAST:event_btnSubmitActionPerformed
 
