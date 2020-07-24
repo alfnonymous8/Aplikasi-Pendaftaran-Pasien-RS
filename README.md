@@ -87,4 +87,37 @@ Aplikasi Pendaftaran Pasien RS ini merupakan aplikasi yang bekerja dibidang ruma
 
 ## E. Tata Cara Instalasi
 
+1. Windows
+
+    * Langkah pertama adalah install XAMPP untuk Windows. Download XAMPP terlebih dahulu pada https://www.apachefriends.org/download.html.
+    * Jika XAMPP sudah terinstall. Selanjutnya unduh installer Aplikasi Pendaftaran Pasien RS versi Windows pada https://github.com/alfnonymous8/Aplikasi-Pendaftaran-Pasien-RS/releases/tag/v1.0.0 dan jalankan, maka akan muncul jendela seperti dibawah kemudian klik next.
+
+        <img src="pic/10.jpg" alt="drawing" style="width:450px;"/>
+    
+    * Pilih direktori insall, kemudian next.
+    
+        <img src="pic/11.jpg" alt="drawing" style="width:450px;"/>
+    
+    * Menentukan apakah icon desktop akan dibuat atau tidak, kemudian next.
+    
+        <img src="pic/12.jpg" alt="drawing" style="width:450px;"/>
+    
+    * Tunggu sampai proses installasi selesai.
+    
+        <img src="pic/13.jpg" alt="drawing" style="width:450px;"/>
+    
+    * Masukkan username dan password MySQL anda, apabila anda tidak pernah mengubah username dan password MySQL maka lanjut klik next.
+    
+        <img src="pic/14.jpg" alt="drawing" style="width:450px;"/>
+    
+    * Klik finish.
+
+        <img src="pic/15.jpg" alt="drawing" style="width:450px;"/>
+    
+    * Jalankan aplikasi melalui shortcut pada desktop.
+
+        <img src="pic/16.jpg" alt="drawing" style="width:200px;"/>
+
+2. Linux
+
 ## F. Manual Penggunaan
