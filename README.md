@@ -90,6 +90,7 @@ Aplikasi Pendaftaran Pasien RS ini merupakan aplikasi yang bekerja dibidang ruma
 1. Windows
 
     * Langkah pertama adalah install XAMPP untuk Windows. Download XAMPP terlebih dahulu pada https://www.apachefriends.org/download.html.
+
     * Jika XAMPP sudah terinstall. Selanjutnya unduh installer Aplikasi Pendaftaran Pasien RS versi Windows pada https://github.com/alfnonymous8/Aplikasi-Pendaftaran-Pasien-RS/releases/tag/v1.0.0 dan jalankan, maka akan muncul jendela seperti dibawah kemudian klik next.
 
         <img src="pic/10.jpg" alt="drawing" style="width:450px;"/>
@@ -119,5 +120,43 @@ Aplikasi Pendaftaran Pasien RS ini merupakan aplikasi yang bekerja dibidang ruma
         <img src="pic/16.jpg" alt="drawing" style="width:200px;"/>
 
 2. Linux
+
+    * Langkah pertama adalah install XAMPP untuk Linux. Download XAMPP terlebih dahulu pada https://www.apachefriends.org/download.html.
+
+    * Jika XAMPP sudah terinstall. Selanjutnya unduh installer Aplikasi Pendaftaran Pasien RS versi Linux pada https://github.com/alfnonymous8/Aplikasi-Pendaftaran-Pasien-RS/releases/tag/v1.0.0.
+
+    * Buka terminal dan masuk kedalam direktori dimana installer Aplikasi Pendaftaran Pasien RS berada. jalankan perintah `chmod +x AppRS_linux_1_0_0.sh`.
+
+    * Jalankan installer dengan mengetikkan perintah `./AppRS_linux_1_0_0.sh` pada direktori tersebut. Jika berhasil akan muncul jendela seperti berikut.
+
+        <img src="pic/17.png" alt="drawing" style="width:450px;"/>
+    
+    * Pilih direktori insall, kemudian next.
+    
+        <img src="pic/18.png" alt="drawing" style="width:450px;"/>
+    
+    * Menentukan apakah icon desktop akan dibuat atau tidak, kemudian next.
+    
+        <img src="pic/19.png" alt="drawing" style="width:450px;"/>
+    
+    * Tunggu sampai proses installasi selesai.
+    
+        <img src="pic/20.png" alt="drawing" style="width:450px;"/>
+    
+    * Masukkan username dan password MySQL anda, apabila anda tidak pernah mengubah username dan password MySQL maka lanjut klik next.
+    
+        <img src="pic/21.png" alt="drawing" style="width:450px;"/>
+    
+    * Klik finish.
+
+        <img src="pic/22.png" alt="drawing" style="width:450px;"/>
+    
+    * Jalankan aplikasi melalui shortcut pada desktop.
+
+        <img src="pic/23.png" alt="drawing" style="width:200px;"/>
+
+    * Klik Trust and Launch.
+
+        <img src="pic/24.png" alt="drawing" style="width:450px;"/>
 
 ## F. Manual Penggunaan
