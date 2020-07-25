@@ -49,7 +49,17 @@ Aplikasi Pendaftaran Pasien RS ini merupakan aplikasi yang bekerja dibidang ruma
 
 5. Konsultasi Online
 
-    Coming Soon!
+    <img src="pic/konsul.jpg" alt="drawing" style="width:450px;"/>
+
+    <p style='text-align: justify;'>
+    Gambar di atas merupakan tampilan saat pengguna hendak melakukan konsultasi online. Pengguna hanya perlu memilih poli tujuan untuk berkonsultasi serta keluhannya pada *field* yang telah disediakan. Pengguna tidak perlu memasukkan informasi pribadi seperti nama, usia, jenis kelamain dan sebagainya karena aplikasi sudah secara otomatis mengidentifikasi id pengguna yang melakukan konsultasi online. Sehingga data-data pengguna sudah sesuai dengan data pada saat pengguna mendaftarkan diri di aplikasi.
+    </p>
+
+    <img src="pic/konsul_berhasil.jpg" alt="drawing" style="width:450px;"/>
+
+    <p style='text-align: justify;'>
+    Pemberitahuan seperti gambar di atas akan muncul apabila konsultasi pengguna berhasil tersimpan.
+    </p>
 
 6. Lihat Antrian Saya
 
@@ -59,6 +69,15 @@ Aplikasi Pendaftaran Pasien RS ini merupakan aplikasi yang bekerja dibidang ruma
     Berikut merupakan tampilan dari menu Lihat Antrian Saya. Pada halaman ini, pengguna dapat melihat antrian yang dimiliki, selain itu pengguna juga dapat mencetak kembali bukti antrian dengan mengklik tombol cetak apabila bukti antrian sebelumnya hilang atau pengguna terlupa untuk menyimpan bukti antrian. Tombol Tambah pada halaman ini akan mengarahkan pengguna ke halaman Ambil Antrian. Tombol Hapus berfungsi untuk menghapus antrian pengguna yang dibatalkan. Kolom cari digunakan untuk mencari antrian berdasarkan Poli Tujuan.
     </p>
 
+7. Lihat/Edit Profil dan Ubah Password
+    
+    <img src="pic/profil.jpg" alt="drawing" style="width:450px;"/>
+
+    <img src="pic/ubah_pass.jpg" alt="drawing" style="width:450px;"/>
+
+    <p style='text-align: justify;'>
+    Pada halaman ini, pengguna dapat melihat informasi tentang akunnya masing-masing. Informasi-informasi yang diberikan yaitu Nomor Rekam Medis, nama, jenis kelamin, tanggal lahir, alamat, nomor telpon, dan email. Pengguna juga dapat mengubah data pribadinya, tetapi hanya email dan nomor telpon yang dapat diubah. Selain kedua itu, pengguna diwajibkan langsung ke rumah sakit untuk mengubah data pribadinya dengan membawa kartu identitas. Kemudian, pengguna juga dapat mengubah password dari akun mereka.
+    </p>
 
 </p>
 
@@ -66,6 +85,7 @@ Aplikasi Pendaftaran Pasien RS ini merupakan aplikasi yang bekerja dibidang ruma
 
     1. Enkripsi password menggunakan SHA-256
     2. Pemberian sanitasi input pada setiap kolom input.
+    3. Menggunakan PreparedStatement sehingga lebih aman terhadap SQL Injection
 
 ## D. Requirements/Library Yang Digunakan
 
