@@ -79,8 +79,6 @@ Aplikasi Pendaftaran Pasien RS ini merupakan aplikasi yang bekerja dibidang ruma
     Pada halaman ini, pengguna dapat melihat informasi tentang akunnya masing-masing. Informasi-informasi yang diberikan yaitu Nomor Rekam Medis, nama, jenis kelamin, tanggal lahir, alamat, nomor telpon, dan email. Pengguna juga dapat mengubah data pribadinya, tetapi hanya email dan nomor telpon yang dapat diubah. Selain kedua itu, pengguna diwajibkan langsung ke rumah sakit untuk mengubah data pribadinya dengan membawa kartu identitas. Kemudian, pengguna juga dapat mengubah password dari akun mereka.
     </p>
 
-</p>
-
 ## C. Fitur Keamanan
 
     1. Enkripsi password menggunakan SHA-256
@@ -180,3 +178,91 @@ Aplikasi Pendaftaran Pasien RS ini merupakan aplikasi yang bekerja dibidang ruma
         <img src="pic/24.png" alt="drawing" style="width:450px;"/>
 
 ## F. Manual Penggunaan
+
+1. Menjalankan Aplikasi
+
+    <p style='text-align: justify;'>
+    Untuk menjalankan aplikasi, pengguna hanya perlu mengklik dua kali icon aplikasi yang ada di desktop. Setelah itu aplikasi akan berjalan dan menampilkan halaman *dashboard* seperti di bawah ini.
+    </p>
+
+    <img src="pic/dashboard.png" alt="drawing" style="width:450px;"/>
+
+2. Melihat Informasi Perkembangan Kasus COVID-19 di Indonesia
+
+    <p style='text-align: justify;'>
+    Dari halaman *dashboard*, pengguna dapat langsung mengklik tombol "Info COVID-19" untuk dapat melihat perkembangan kasus Covid-19 di Indonesia. Setelah diklik, otomatis akan muncul halaman baru yang menunjukkan grafik perkembangan kasus Covid-19 di Indonesia. 
+    </p>
+
+    <img src="pic/dashboard_info.png" alt="drawing" style="width:450px;"/>
+
+    <img src="pic/info_covid.png" alt="drawing" style="width:450px;"/>
+
+3. Melakukan Pendaftaran
+
+    <p style='text-align: justify;'>
+    Untuk melakukan pendaftaran, dari halaman *dashboard* pengguna dapat mengklik tombol "Daftar Akun Aplikasi". Setelah tombol diklik, maka akan muncul jendela baru untuk melakukan pendaftaran. Sebelum melakukan pendaftaran di aplikasi, pengguna harus sudah terdaftar di Rumah Sakit dan memiliki Nomor Rekam Medis dari rumah sakit tersebut. Pengguna tidak akan bisa melakukan pendaftaran apabila tidak memiliki Nomor Rekam Medis. Isilah form yang ada pada jendela tersebut, dan jika sudah selesai klik tombol "Submit" di bagian paling bawah.
+    </p>
+
+    <img src="pic/dashboard_daftar.png" alt="drawing" style="width:450px;"/>
+
+    <img src="pic/daftar.png" alt="drawing" style="width:450px;"/>
+
+4. Melakukan login user
+
+    <p style='text-align: justify;'>
+    Pengguna dapat melakukan login dengan mengklik tombol "Masuk" yang ada pada dashboard.
+    </p>
+
+    <img src="pic/dashboard_masuk.png" alt="drawing" style="width:450px;"/>
+
+    <p style='text-align: justify;'>
+    Pada jendela login, masukkan email dan password pengguna yang sebelumnya telah didaftarkan. Kemudian klik tombol "Login" untuk masuk ke aplikasi.
+    </p>
+
+    <img src="pic/login.png" alt="drawing" style="width:450px;"/>
+
+    <p style='text-align: justify;'>
+    Apabila email dan password yang dimasukkan benar, maka pengguna akan diarahkan ke sebuah jendela utama yang berisi fitur-fitur yang tersedia di aplikasi.
+    </p>
+
+    <img src="pic/utama.png" alt="drawing" style="width:450px;"/>
+
+5. Mengambil antrian
+
+    <p style='text-align: justify;'>
+    Dari menu utama, klik tombol "Ambil antrian" dan jendela baru akan terbuka. Kemudian pilihlah poli tujuan berobat serta tanggalnya. Setelah itu klik tombol "Ambil Antrian" pada jendela baru tersebut.
+    </p>
+
+    <img src="pic/ambil_antrian.png" alt="drawing" style="width:450px;"/>
+
+    <p style='text-align: justify;'>
+    Jika berhasil, maka akan muncul sebuah struk pada layar monitor yang akan digunakan sebagai bukti antrian. Simpanlah bukti antrian ini dan bawalah saat akan berobat ke rumah sakit.
+    </p>
+
+    <img src="pic/9.jpg" alt="drawing" style="width:450px;"/>
+
+6. Lihat daftar antrian saya
+
+    <p style='text-align: justify;'>
+    Klik tombol "Lihat Antrian Saya" dari menu utama dan jendela baru akan terbuka. Pada jendela baru tersebut, akan ditampilkan daftar antrian dari pengguna baik yang sudah lewat maupun yang akan datang. Pengguna juga dapat mencari antriannya berdasarkan nama poli melalui kotak pencarian di sebelah kanan atas. Selain itu, pengguna juga dapat mencetak ulang bukti antrian dengan tombol "cetak", menghapus antrian yang sudah ada dengan tombol "Hapus", serta menambah antrian dengan tombol "Tambah". Apabila pengguna mengklik tombol "Tambah" maka pengguna akan diarahkan kembali ke jendela Ambil Antrian sebelumnya.
+    </p>
+
+    <img src="pic/lihat_antrian.png" alt="drawing" style="width:450px;"/>
+
+7. Konsultasi online
+
+    <p style='text-align: justify;'>
+    Untuk melakukan konsultasi online, pengguna dapat mengklik tombol "Konsultasi Online" pada menu utama. Pada jendela konsultasi online, pengguna cukup memilih poli tujuan konsultasi serta menceritakan keluhan pada *textfield* yang tersedia. Keluhan yang diceritakan tidak diperbolehkan terlalu pendek. Usahakan isi keluhan dengan sejelas-jelasnya sehingga dokter juga dapat membantu memberikan solusi. Apabila telah selesai, klik tombol "Submit" untuk mengirimkan keluhan anda ke poli terkait.
+    </p>
+
+    <img src="pic/konsul_online.png" alt="drawing" style="width:450px;"/>
+
+8. Melihat dan mengedit profil serta password
+    
+    <p style='text-align: justify;'>
+    Untuk melihat profil pengguna, klik tombol "Lihat Profil Saya" pada menu utama. Setelah itu akan muncul jendela yang memberikan informasi profil pengguna.  Pengguna dapat mengubah alamat email serta nomor telponnya dengan mengklik tombol "Edit" pada bagian bawah kiri. Apabila telah selesai melakukan perubahan, simpan perubahan tersebut dengan mengklik tombol "Simpan". Kemudian, untuk mengubah password pengguna dapat mengklik tombol "Ubah password" dan jendela baru akan terbuka. Pada jendela tersebut, isikan password lama pengguna serta password baru. Klik tombol "Simpan" jika sudah selesai.
+    </p>
+
+    <img src="pic/profil.jpg" alt="drawing" style="width:450px;"/>
+
+    <img src="pic/ubah_pass.jpg" alt="drawing" style="width:450px;"/>
